@@ -83,6 +83,7 @@ export default function VaporizeTextCycle({
   const [animationState, setAnimationState] = useState<"static" | "vaporizing" | "fadingIn" | "waiting">("static");
   const vaporizeProgressRef = useRef(0);
   const fadeOpacityRef = useRef(0);
+  const waitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [wrapperSize, setWrapperSize] = useState({ width: 0, height: 0 });
   const transformedDensity = transformValue(density, [0, 10], [0.3, 1], true);
 
@@ -151,6 +152,10 @@ export default function VaporizeTextCycle({
         cancelAnimationFrame(animationFrameRef.current);
         animationFrameRef.current = null;
       }
+      if (waitTimeoutRef.current) {
+        clearTimeout(waitTimeoutRef.current);
+        waitTimeoutRef.current = null;
+      }
       return undefined;
     }
   }, [isInView]);
@@ -218,7 +223,9 @@ export default function VaporizeTextCycle({
 
           if (fadeOpacityRef.current >= 1) {
             setAnimationState("waiting");
-            setTimeout(() => {
+            if (waitTimeoutRef.current) clearTimeout(waitTimeoutRef.current);
+            waitTimeoutRef.current = setTimeout(() => {
+              waitTimeoutRef.current = null;
               setAnimationState("vaporizing");
               vaporizeProgressRef.current = 0;
               resetParticles(particlesRef.current);
@@ -240,6 +247,10 @@ export default function VaporizeTextCycle({
     return () => {
       if (frameId) {
         cancelAnimationFrame(frameId);
+      }
+      if (waitTimeoutRef.current) {
+        clearTimeout(waitTimeoutRef.current);
+        waitTimeoutRef.current = null;
       }
     };
   }, [
