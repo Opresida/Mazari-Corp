@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+:root {
+  /* Mazari Corp Dark Theme - Permanently Dark */
+  --background: 120 6% 3%;      /* #080908 */
+  --foreground: 0 0% 100%;      /* #FFFFFF */
+  
+  --card: 120 2% 10%;           /* #1A1B1A */
+  --card-foreground: 0 0% 100%;
+  
+  --popover: 120 2% 10%;
+  --popover-foreground: 0 0% 100%;
+  
+  --primary: 72 100% 58%;       /* #D2FF28 Neon Lime */
+  --primary-foreground: 120 6% 3%;
+  
+  --secondary: 120 2% 15%;
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 120 2% 12%;
+  --muted-foreground: 0 0% 63%; /* #A1A1A1 */
+  
+  --accent: 72 100% 58%;
+  --accent-foreground: 120 6% 3%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --border: 120 2% 18%;
+  --input: 120 2% 15%;
+  --ring: 72 100% 58%;
+  
+  --radius: 1rem;
+}
+
+.dark {
+  /* Same variables to ensure it stays dark even if someone toggles OS settings */
+  --background: 120 6% 3%;
+  --foreground: 0 0% 100%;
+  --card: 120 2% 10%;
+  --card-foreground: 0 0% 100%;
+  --popover: 120 2% 10%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 72 100% 58%;
+  --primary-foreground: 120 6% 3%;
+  --secondary: 120 2% 15%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 120 2% 12%;
+  --muted-foreground: 0 0% 63%;
+  --accent: 72 100% 58%;
+  --accent-foreground: 120 6% 3%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 120 2% 18%;
+  --input: 120 2% 15%;
+  --ring: 72 100% 58%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Custom scrollbar for premium feel */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: hsl(var(--background));
+    }
+    &::-webkit-scrollbar-thumb {
+      background: hsl(var(--card));
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--border));
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-[-0.02em];
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(210, 255, 40, 0.3);
+  }
+  .box-glow {
+    box-shadow: 0 0 30px rgba(210, 255, 40, 0.15);
+  }
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.1em] text-primary mb-4 block;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}

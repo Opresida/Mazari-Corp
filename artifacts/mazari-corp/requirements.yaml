@@ -1,0 +1,13 @@
+packages:
+  "framer-motion": "For high-end scroll animations, fade-ins, and layout transitions required by the design spec"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility function to efficiently merge Tailwind CSS classes"
+  "react-hook-form": "For robust lead capture form state management"
+  "@hookform/resolvers": "For form validation resolvers"
+  "zod": "Schema validation for the contact form"
+
+images: []
+
+notes:
+  - Frontend-only application; no backend API required. Form submissions are mocked.
+  - The site is permanently in dark mode as per the Kronix design system requirements.

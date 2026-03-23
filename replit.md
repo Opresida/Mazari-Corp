@@ -21,7 +21,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── mazari-corp/        # Mazari Corp corporate website (React + Vite, served at /)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -90,6 +91,16 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 ### `lib/api-client-react` (`@workspace/api-client-react`)
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
+
+### `artifacts/mazari-corp` (`@workspace/mazari-corp`)
+
+Mazari Corp corporate website — a premium dark-mode site for a multinational technology company.
+
+- Stack: React + Vite + Tailwind CSS v4 + Framer Motion
+- Design system: deep black (#080908) + neon lime green (#D2FF28) + Plus Jakarta Sans font
+- Sections: Hero, Trusted Brands marquee, About, Services (4 cards), International Consulting, Testimonials, Lead Capture Form, Footer
+- Served at: `/` (root preview path)
+- Frontend-only, no backend dependencies
 
 ### `scripts` (`@workspace/scripts`)
 
