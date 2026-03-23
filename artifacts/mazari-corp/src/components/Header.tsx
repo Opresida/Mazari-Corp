@@ -96,8 +96,9 @@ export function Header() {
               <Button 
                 size="lg" 
                 className="mt-8 w-full"
-                onClick={(e) => {
-                  scrollTo(e as any, '#contato');
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 Fale com um Especialista
