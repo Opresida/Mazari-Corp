@@ -1,0 +1,137 @@
+Análise Técnica de Design: Kronix Agency
+
+Esta documentação detalha os elementos visuais e estruturais do mockup da Kronix, uma agência de design moderna. O estilo segue tendências de "Dark Mode" de alto contraste com foco em SaaS e agências premium.
+
+1. 🎨 Paleta de Cores
+
+A paleta é minimalista, focada em um contraste agressivo entre o fundo escuro e o verde limão vibrante.
+
+Cor Primária (Acento): #D2FF28 (Verde Limão/Neon) - Usada para CTAs, ícones e palavras-chave.
+
+Fundo Principal (Deep Black): #080908 (Um preto quase puro, levemente quente).
+
+Fundo Secundário (Container): #1A1B1A (Cinza escuro para a barra de logos e áreas de destaque).
+
+Texto Principal: #FFFFFF (Branco puro para títulos).
+
+Texto Secundário/Corpo: #A1A1A1 (Cinza médio para descrições e sub-títulos menores).
+
+Glow/Gradients: #1B2E10 (Verde floresta profundo usado em gradientes radiais de fundo).
+
+2. 🔘 Botões e CTAs
+
+Os botões seguem um padrão de "pílula" (pill-shaped) com foco em legibilidade.
+
+Estilo: Totalmente arredondados (border-radius: 9999px).
+
+Cores: * Fundo: #D2FF28.
+
+Texto: #080908 (Preto para contraste máximo).
+
+Tipografia: Sans-serif, Peso 600 (Semi-bold), tamanho aproximado de 14px a 16px.
+
+Espaçamento: Padding vertical de 12px e horizontal de 28px (proporção 1:2.3).
+
+Interação (Inferida): Efeito de scale leve (1.05x) no hover ou um brilho (box-shadow) suave na cor neon.
+
+3. 🧱 Layout e Estrutura
+
+O design utiliza uma estrutura de container centralizado com grids claros.
+
+Header: Layout fixo ou absoluto com logo à esquerda, navegação centralizada e CTA à direita.
+
+Hero Section: Alinhamento centralizado. Ocupa aproximadamente 80vh.
+
+Trusted Brands: Uma barra horizontal destacada com background-color e padding interno, servindo como respiro visual.
+
+Seção de Processos: Estrutura em duas partes:
+
+Topo: Texto à esquerda (Título) e descrição à direita (Grid 2 colunas 1:1 ou 5:7).
+
+Base: Grid de 3 colunas para as etapas do processo, conectadas por linhas horizontais.
+
+4. 🔤 Tipografia
+
+O layout utiliza uma fonte Sans-Serif geométrica moderna (Ex: Inter, Plus Jakarta Sans ou Archivo).
+
+Títulos (Display): * Peso: 700 (Bold).
+
+Letter-spacing: -0.02em (Tight).
+
+Tamanho: Hero (~72px), Seções (~40px).
+
+Corpo de Texto:
+
+Peso: 400 (Regular).
+
+Line-height: 1.6 (Para melhor leitura em fundo escuro).
+
+Tamanho: 16px a 18px.
+
+Eyebrows (Labels pequenas): * Tamanho: 12px.
+
+Transform: uppercase.
+
+Letter-spacing: 0.1em.
+
+5. 🌈 Gradientes e Efeitos
+
+Background Glow: Uso de radial-gradient no fundo para criar profundidade. Um círculo de luz verde com opacidade baixa (~10%) posicionado atrás do Hero e no rodapé.
+
+Logo Bar: Efeito de "Glassmorphism" leve ou apenas uma cor sólida opaca para destacar os logos das marcas parceiras.
+
+Shapes: Uso de ícones de "brilho" (sparkle/star) de 4 pontas em verde neon como elementos decorativos.
+
+6. 🧩 Elementos Visuais
+
+Ícones: Estilo "Line Art" (contorno) dentro de círculos sólidos. O círculo tem um fundo verde neon e o ícone interno é preto.
+
+Logos de Marcas: Versões monocromáticas (branco/cinza claro) para manter a harmonia visual.
+
+Linhas Conectoras: Linhas finas (1px) com setas indicando o fluxo entre os passos do processo.
+
+7. 🧠 Estilo de Design
+
+Classificação: Dark Mode, Minimalista Futurista, High-Tech SaaS.
+
+Influências: Web3, Agências de Webflow de alto nível, Design de interfaces Apple (pelo uso de tipografia limpa e espaços).
+
+8. 📱 Responsividade (Inferência)
+
+Mobile: * O grid de 3 colunas (Processo) deve se tornar 1 coluna empilhada.
+
+O menu de navegação deve ser escondido em um "Hamburger Menu".
+
+A barra de logos (Trusted Brands) deve ter um overflow-x: scroll ou se transformar em um carrossel infinito.
+
+9. ⚙️ Componentes Reutilizáveis
+
+Button: Variante primary (Verde) e ghost (Apenas texto/borda).
+
+SectionHeading: Composto por label (verde), title (branco) e description (cinza).
+
+ProcessCard: Ícone circular + Título + Texto curto.
+
+LogoBar: Container horizontal com filtros de brilho nos logos.
+
+10. 🧾 Resumo Técnico para Desenvolvedor
+
+Para replicar este layout com precisão usando Tailwind CSS:
+
+Configuração de Cores:
+
+colors: {
+  brand: '#D2FF28',
+  background: '#080908',
+  surface: '#1A1B1A',
+  muted: '#A1A1A1',
+}
+
+
+Efeito de Glow: Utilize bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand/10 via-transparent to-transparent.
+
+Grid de Processo: Use grid-cols-1 md:grid-cols-3 com um elemento pseudo ::after para as linhas conectoras no desktop.
+
+Tipografia: Importe Plus Jakarta Sans via Google Fonts.
+
+Dica de Implementação: O segredo deste layout está no "espaço negativo" (whitespace). Não tenha medo de usar margens grandes (py-24 ou py-32 no Tailwind) para dar a sensação de produto premium.

@@ -1,0 +1,134 @@
+Com base em TODOS os elementos de design previamente extraídos (cores, tipografia, layout, botões, efeitos, espaçamentos, estilos visuais e componentes), sua tarefa é recriar um site completo, funcional e altamente profissional, mantendo 100% de fidelidade ao design analisado.
+
+O projeto será para a empresa:
+
+MAZARI CORP
+
+Uma empresa de alto padrão, com posicionamento premium, focada em tecnologia, marketing e soluções internacionais.
+
+⚙️ DIRETRIZ PRINCIPAL
+Utilize EXATAMENTE o design system extraído como base
+Mantenha consistência visual total (cores, estilos, animações, hierarquia)
+O site deve ter aparência moderna, tecnológica, responsiva e altamente persuasiva
+A copy deve transmitir autoridade, sofisticação e domínio técnico
+🧱 ESTRUTURA DO SITE
+1. 🚀 HERO SECTION (Primeira dobra)
+Headline forte e impactante (foco em autoridade e inovação)
+Subheadline explicando a proposta da MAZARI CORP
+CTA principal (ex: “Fale com um especialista”)
+Elementos visuais modernos (gradientes, glow, efeitos tech)
+Animações leves de entrada (fade, slide, blur)
+2. 🧠 SOBRE A EMPRESA
+
+Descreva a MAZARI CORP como:
+
+Uma empresa especializada em soluções estratégicas e tecnológicas
+Atuação nacional e internacional
+Foco em performance, escala e estruturação empresarial
+
+Linguagem: institucional + persuasiva + técnica
+
+3. 💼 SERVIÇOS PRINCIPAIS
+
+Crie blocos (cards ou seções) dentro do design extraído, com descrição completa:
+
+📊 Marketing e Performance
+Consultoria estratégica de marketing digital
+Gestão de tráfego pago (Meta Ads, Google Ads, etc.)
+Funis de vendas e escala
+Otimização de ROI
+🎨 Design e Presença Digital
+Criação de identidade visual profissional
+Desenvolvimento de interfaces modernas (UI/UX)
+Gestão e administração de redes sociais
+Produção de criativos de alta conversão
+💻 Desenvolvimento e Programação
+Estruturação completa de sistemas em:
+Python (automação, backend, IA)
+Java (sistemas robustos e escaláveis)
+Solidity (blockchain e smart contracts)
+Desenvolvimento de plataformas personalizadas
+Integrações e automações avançadas
+🔗 Blockchain e Smart Contracts
++10 anos de experiência em Solidity
++30 tokens já lançados
+Projetos nacionais e internacionais
+Criação de contratos inteligentes seguros e auditáveis
+4. 🌍 CONSULTORIA INTERNACIONAL / OFFSHORE
+
+Criar uma seção premium destacando:
+
+Consultoria para abertura de empresas offshore
+Estruturação legal e estratégica para médio e grande porte
+
+Países de atuação:
+
+Bahamas
+Dubai
+Marrocos
+Malta
+Paraguai
+🇵🇾 Paraguai
+Consultoria completa para obtenção de cidadania
+Estruturação fiscal e empresarial
+
+Linguagem: alto nível, confidencialidade, exclusividade
+
+5. ⭐ DEPOIMENTOS
+
+Criar uma seção dentro do design:
+
+Cards de depoimentos
+Nome + resultado alcançado
+Layout moderno (carrossel ou grid)
+Animações suaves
+6. 📥 CAPTAÇÃO DE LEADS
+
+Criar uma seção com formulário contendo:
+
+Nome
+WhatsApp
+Email
+
+Elementos:
+
+Design moderno alinhado ao restante do site
+Botão com efeito hover
+Copy persuasiva (ex: “Solicite uma análise estratégica”)
+7. 🎯 INTERAÇÕES E EFEITOS
+
+Aplicar:
+
+Hover avançado em botões
+Scroll animations (fade, reveal, parallax leve)
+Microinterações modernas
+Efeitos inspirados em sites SaaS e Web3
+8. 🧾 FOOTER
+
+Inserir:
+
+www.mazaricorp.com
+corporativo@mazaricorp.com
+
+Layout profissional e clean
+
+⚡ REQUISITOS TÉCNICOS
+Código organizado e limpo
+HTML + CSS + JS ou React + Tailwind (preferencialmente)
+Responsividade total (mobile-first)
+Componentização reutilizável
+Estrutura pronta para produção
+🧠 DIFERENCIAL
+O site deve parecer de uma empresa de tecnologia internacional
+Estética moderna (nível startup global / fintech / Web3)
+Visual impactante e sofisticado
+
+⚠️ IMPORTANTE:
+
+Não inventar estilos fora do design extraído — adaptar com consistência
+Priorizar clareza, sofisticação e conversão
+Cada seção deve ser bem estruturada, com copy forte e técnica
+🔥 OUTPUT FINAL
+Entregar o site completo (código)
+Estrutura organizada por seções
+Pronto para deploy
