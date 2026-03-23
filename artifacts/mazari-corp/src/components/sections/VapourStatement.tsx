@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 
 const MAZARI_PHRASES = [
-  "Tecnologia de Classe Mundial",
-  "Resultados Extraordinários",
+  "Excelência Tecnológica",
+  "Alta Performance",
   "Escala Global",
   "Inovação Sem Limites",
 ];
