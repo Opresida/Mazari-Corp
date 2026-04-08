@@ -1,15 +1,15 @@
 export function TrustedBrands() {
   const brands = [
-    "TechVault", "NexaCorp", "DigitalFlow", "BlockForge", 
-    "MarketEdge", "ScaleHub", "InnovateBR", "FintechPro", 
-    "VentureLab", "GlobalNet"
+    "IDASAM", "i2TA", "Glomam", "Startups Web3",
+    "Fintechs", "Empresas SaaS", "Instituições de P&D", "Holdings Internacionais",
+    "Plataformas DeFi", "Consultorias"
   ];
 
   return (
     <section className="py-12 bg-card border-y border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
         <p className="text-xs font-bold uppercase tracking-[0.1em] text-muted-foreground">
-          Empresas que confiam na Mazari
+          Empresas que constroem conosco
         </p>
       </div>
       

@@ -15,10 +15,12 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: "Serviços", href: "#servicos" },
-    { label: "Sobre", href: "#sobre" },
+    { label: "Desenvolvimento", href: "#desenvolvimento" },
+    { label: "Blockchain", href: "#blockchain" },
+    { label: "Processo", href: "#processo" },
+    { label: "Cases", href: "#cases" },
     { label: "Consultoria", href: "#consultoria" },
-    { label: "Depoimentos", href: "#depoimentos" },
+    { label: "Contato", href: "#contato" },
   ];
 
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -60,7 +62,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button onClick={() => document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' })}>
-            Fale com um Especialista
+            Agendar Reunião
           </Button>
         </div>
 
@@ -101,7 +103,7 @@ export function Header() {
                   document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Fale com um Especialista
+                Agendar Reunião
               </Button>
             </div>
           </motion.div>

@@ -143,3 +143,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@keyframes hexDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 52px; }
+}

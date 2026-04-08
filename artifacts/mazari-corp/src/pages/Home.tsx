@@ -2,9 +2,13 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBrands } from "@/components/sections/TrustedBrands";
 import { About } from "@/components/sections/About";
-import { Services } from "@/components/sections/Services";
+import { Desenvolvimento } from "@/components/sections/Desenvolvimento";
+import { Blockchain } from "@/components/sections/Blockchain";
 import { VapourStatement } from "@/components/sections/VapourStatement";
+import { Process } from "@/components/sections/Process";
+import { Cases } from "@/components/sections/Cases";
 import { Consulting } from "@/components/sections/Consulting";
+import { Team } from "@/components/sections/Team";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
@@ -17,9 +21,13 @@ export default function Home() {
         <Hero />
         <TrustedBrands />
         <About />
-        <Services />
+        <Desenvolvimento />
+        <Blockchain />
         <VapourStatement />
+        <Process />
+        <Cases />
         <Consulting />
+        <Team />
         <Testimonials />
         <Contact />
       </main>

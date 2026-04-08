@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 export function Consulting() {
   const countries = [
-    { name: "Bahamas", desc: "Estruturação offshore premium", active: true },
-    { name: "Dubai", desc: "Hub tecnológico e financeiro global", active: false },
-    { name: "Marrocos", desc: "Gateway estratégico para África e Europa", active: false },
-    { name: "Malta", desc: "Jurisdição europeia avançada para Web3", active: false },
-    { name: "Paraguai", desc: "Consultoria fiscal e empresarial ágil", active: false },
-    { name: "Paraguai (Cidadania)", desc: "Consultoria completa para obtenção de cidadania", active: true, highlight: true }
+    { name: "Bahamas", desc: "Holding offshore premium com privacidade máxima e zero tributação sobre renda.", active: true },
+    { name: "Dubai", desc: "Hub global para tech e finanças. Free zones com 0% imposto corporativo.", active: false },
+    { name: "Marrocos", desc: "Ponte estratégica entre Europa e África. Custos operacionais competitivos.", active: false },
+    { name: "Malta", desc: "Jurisdição europeia regulada para Web3, gaming e fintechs. Passaporte EU.", active: false },
+    { name: "Paraguai", desc: "Abertura de empresa em dias. Tributação simplificada e custo até 70% menor.", active: false },
+    { name: "Paraguai (Cidadania)", desc: "Processo completo de residência e cidadania. Segundo passaporte Mercosul.", active: true, highlight: true }
   ];
 
   return (
@@ -17,12 +17,14 @@ export function Consulting() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
-            <span className="eyebrow">Consultoria Internacional</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Expanda Seus Horizontes com <br className="hidden md:block"/> Estruturação Offshore
+            <span className="eyebrow">Expansão Internacional</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+              Estruturação Global{" "}
+              <br className="hidden md:block"/>
+              <span className="text-primary italic font-serif font-medium text-glow">para Quem Pensa Grande.</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Acesso exclusivo a jurisdições internacionais estratégicas para proteção patrimonial, eficiência fiscal e expansão global sem fricção.
+              Jurisdições estratégicas, eficiência fiscal e proteção patrimonial. Operamos nos bastidores para que sua empresa opere no mundo inteiro sem fricção.
             </p>
           </div>
         </div>
@@ -55,11 +57,11 @@ export function Consulting() {
 
         <div className="mt-16 text-center border-t border-white/5 pt-8">
           <p className="text-sm tracking-widest uppercase font-bold text-muted-foreground/60 flex flex-wrap justify-center gap-4 sm:gap-8">
-            <span>Confidencialidade Total</span>
+            <span>Sigilo Absoluto</span>
             <span className="hidden sm:inline">·</span>
-            <span>Atendimento Personalizado</span>
+            <span>Atendimento White-Glove</span>
             <span className="hidden sm:inline">·</span>
-            <span>Estruturação Completa</span>
+            <span>Estruturação Fim a Fim</span>
           </p>
         </div>
       </div>

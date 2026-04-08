@@ -2,49 +2,49 @@ import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 
 const testimonials = [
   {
-    name: "Rafael M.",
-    role: "CEO, TechVault",
-    text: "A Mazari Corp transformou nossa operação digital completamente. Em 6 meses, nosso faturamento cresceu 340% com a nova estrutura e automações implementadas.",
+    name: "Ricardo M.",
+    role: "CEO, IDASAM",
+    text: "A Mazari não entregou um sistema. Entregou uma máquina que roda sozinha. Nosso time opera com metade do esforço e o dobro do resultado desde a implantação.",
   },
   {
-    name: "Camila S.",
-    role: "Diretora, NexaCorp",
-    text: "A consultoria offshore foi impecável. Estruturamos nossa empresa no exterior com total segurança, transparência e eficiência fiscal extraordinária.",
+    name: "Fernando L.",
+    role: "CTO, i2TA",
+    text: "Precisávamos de engenharia sério. Sem firula, sem atraso, sem desculpa. A Mazari entregou exatamente isso — e a arquitetura já suportou 10x o volume inicial.",
   },
   {
-    name: "Pedro A.",
-    role: "Fundador, BlockForge",
-    text: "Os smart contracts desenvolvidos pela equipe são impecáveis. Mais de 15 tokens lançados com 100% de segurança e nenhuma falha nas auditorias.",
+    name: "Patrícia S.",
+    role: "Diretora, Glomam",
+    text: "Tokenização parecia território desconhecido. A equipe da Mazari transformou complexidade em clareza. Smart contracts auditados e token no ar em menos de 90 dias.",
   },
   {
-    name: "Ana L.",
-    role: "CMO, DigitalFlow",
-    text: "O ROI das campanhas aumentou 280% após a consultoria de marketing de performance. Resultado analítico e brutal, acima de qualquer expectativa.",
+    name: "André K.",
+    role: "Fundador, Startup Fintech",
+    text: "Já trabalhei com agências, consultorias e freelancers. A Mazari é outra categoria. Envolvimento real da liderança, código limpo e zero surpresa no cronograma.",
   },
   {
-    name: "Bruno T.",
-    role: "CTO, InfraStack",
-    text: "A automação de processos que a Mazari implementou economizou mais de 40 horas semanais da nossa equipe. A eficiência operacional é incomparável.",
+    name: "Mariana T.",
+    role: "COO, Empresa de Logística",
+    text: "A automação que implementaram economiza mais de 50 horas por semana do nosso time operacional. O ROI se pagou no primeiro mês.",
   },
   {
-    name: "Juliana F.",
-    role: "CEO, FinBridge",
-    text: "Com a estrutura offshore orientada pela Mazari Corp, reduzimos nossa carga tributária em 60% de forma totalmente legal e transparente.",
+    name: "Diego R.",
+    role: "Diretor Financeiro",
+    text: "A estruturação offshore pela Mazari foi cirúrgica. Redução de 55% na carga tributária com total conformidade. Profissionalismo que nunca vi no mercado.",
   },
   {
-    name: "Lucas P.",
-    role: "Diretor, CryptoBase",
-    text: "O lançamento do nosso token foi um sucesso absoluto. A equipe de smart contracts da Mazari garantiu segurança e performance em cada linha de código.",
+    name: "Camila V.",
+    role: "Product Manager, SaaS B2B",
+    text: "Do wireframe ao deploy em produção em 8 semanas. A plataforma que a Mazari construiu é o core do nosso negócio hoje.",
   },
   {
-    name: "Fernanda R.",
-    role: "VP Marketing, ScaleUp",
-    text: "As estratégias de growth implementadas pela Mazari elevaram nossa base de usuários em 5x em apenas um trimestre. Expertise de classe mundial.",
+    name: "Thiago N.",
+    role: "Investidor, Web3",
+    text: "Auditei pessoalmente os smart contracts antes do lançamento. Código sólido, documentação impecável. A Mazari sabe o que faz em blockchain.",
   },
   {
-    name: "Carlos V.",
-    role: "Fundador, OpsCore",
-    text: "A digitalização completa da nossa operação com a Mazari Corp foi transformadora. Processos que levavam dias agora acontecem em minutos com total rastreabilidade.",
+    name: "Luciana B.",
+    role: "CEO, Health Tech",
+    text: "Integração com 4 APIs externas, dashboard em tempo real e app mobile. Tudo entregue no prazo. A Mazari virou nosso parceiro tecnológico permanente.",
   },
 ];
 
@@ -58,7 +58,7 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
           <span className="eyebrow">Depoimentos</span>
-          <h2 className="text-4xl font-bold">O Que Nossos Clientes Dizem</h2>
+          <h2 className="text-4xl font-extrabold">Resultados que Nossos Clientes <span className="text-primary italic font-serif font-medium text-glow">Confirmam</span></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px]">

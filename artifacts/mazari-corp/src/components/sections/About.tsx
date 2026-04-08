@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export function About() {
   const stats = [
-    { value: "10+", label: "Anos de Experiência" },
-    { value: "30+", label: "Projetos Globais" },
-    { value: "5", label: "Continentes de Atuação" },
+    { value: "10+", label: "Anos no Mercado Global" },
+    { value: "30+", label: "Projetos Entregues" },
+    { value: "5", label: "Continentes Ativos" },
   ];
 
   return (
@@ -20,7 +20,8 @@ export function About() {
           >
             <span className="eyebrow">Sobre Nós</span>
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-              Uma Empresa Construída para <span className="text-primary">Resultados Extraordinários</span>
+              Não Somos Uma Agência.{" "}
+              <span className="text-primary italic font-serif font-medium text-glow">Somos Arquitetos de Infraestrutura Digital.</span>
             </h2>
           </motion.div>
 
@@ -32,9 +33,9 @@ export function About() {
             className="flex flex-col gap-8"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A Mazari Corp é uma multinacional de tecnologia e inteligência de negócios. Não somos apenas executores; somos arquitetos do crescimento estratégico. 
+              A Mazari Corp nasceu da obsessão por construir tecnologia que funciona em escala real. Fundada por Humberto Mazari, a empresa opera em 5 continentes combinando engenharia de software, blockchain e inteligência artificial para criar soluções que empresas comuns não conseguem imaginar — e muito menos executar.
               <br/><br/>
-              Combinamos engenharia de software de ponta, marketing de performance agressivo e estruturação offshore premium para escalar operações além das fronteiras. Nosso foco é claro: estruturação empresarial robusta, escalabilidade e dominação de mercado.
+              Nosso time não entrega projetos. Entrega vantagens competitivas permanentes.
             </p>
 
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">

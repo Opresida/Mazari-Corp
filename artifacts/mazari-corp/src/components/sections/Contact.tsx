@@ -4,6 +4,14 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useToast } from "@/hooks/use-toast";
 
+const serviceOptions = [
+  "Desenvolvimento Web/App",
+  "Blockchain & Tokenização",
+  "Consultoria Offshore",
+  "Inteligência Artificial",
+  "Outro",
+];
+
 export function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -11,13 +19,12 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
+
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: "Recebemos seu contato!",
-        description: "Nossa equipe de especialistas entrará em contato em breve.",
+        title: "Recebemos sua solicitação!",
+        description: "Nossa equipe responderá em até 24 horas com uma proposta personalizada.",
         className: "bg-card border-primary text-white",
       });
       (e.target as HTMLFormElement).reset();
@@ -37,10 +44,13 @@ export function Contact() {
           viewport={{ once: true }}
           className="bg-card/50 backdrop-blur-md p-8 md:p-14 rounded-[40px] border border-white/10 text-center"
         >
-          <span className="eyebrow mx-auto">Contato</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Solicite sua Análise Estratégica</h2>
+          <span className="eyebrow mx-auto">Próximo Passo</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
+            Sua Próxima Vantagem Competitiva{" "}
+            <span className="text-primary italic font-serif font-medium text-glow">Começa com Uma Conversa.</span>
+          </h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Nossa equipe de especialistas está pronta para analisar seu negócio e apresentar as soluções ideais para estruturação e escala global.
+            Conte o que precisa. Nossa equipe analisa seu cenário e responde em até 24 horas com uma proposta personalizada — sem compromisso.
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-xl mx-auto text-left">
@@ -48,28 +58,41 @@ export function Contact() {
               <label htmlFor="name" className="block text-sm font-medium text-white mb-2 ml-2">Nome completo</label>
               <Input id="name" required placeholder="Ex: João Silva" />
             </div>
-            
+
             <div>
               <label htmlFor="whatsapp" className="block text-sm font-medium text-white mb-2 ml-2">WhatsApp</label>
               <Input id="whatsapp" required type="tel" placeholder="+55 (11) 99999-9999" />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-white mb-2 ml-2">E-mail corporativo</label>
               <Input id="email" required type="email" placeholder="joao@suaempresa.com" />
             </div>
 
-            <Button 
-              type="submit" 
-              size="lg" 
-              className="w-full mt-4 h-14 text-lg"
+            <div>
+              <label htmlFor="service" className="block text-sm font-medium text-white mb-2 ml-2">Serviço de interesse</label>
+              <select
+                id="service"
+                className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <option value="">Selecione...</option>
+                {serviceOptions.map(opt => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            </div>
+
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full mt-4 h-14 text-lg text-black font-bold"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Enviando solicitação..." : "Solicitar Análise Gratuita"}
+              {isSubmitting ? "Enviando solicitação..." : "Solicitar Proposta Personalizada"}
             </Button>
-            
+
             <p className="text-xs text-center text-muted-foreground mt-4">
-              Seus dados estão protegidos. Não enviamos spam.
+              Seus dados estão 100% protegidos. Respondemos em até 24h.
             </p>
           </form>
         </motion.div>

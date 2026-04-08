@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 
 const MAZARI_PHRASES = [
-  "Excelência Tecnológica",
-  "Alta Performance",
-  "Escala Global",
-  "Inovação Sem Limites",
+  "Engenharia de Precisão",
+  "Blockchain sem Compromisso",
+  "Inteligência que Escala",
+  "Código que Transforma",
 ];
 
 type Breakpoint = "mobile" | "tablet" | "desktop";
@@ -74,7 +74,7 @@ export function VapourStatement() {
         </div>
 
         <p className="max-w-xl text-muted-foreground text-base md:text-lg leading-relaxed">
-          Há mais de uma década moldando o futuro digital de empresas em quatro continentes.
+          Tecnologia de classe mundial. Execução sem desculpas. Resultados que falam.
         </p>
       </div>
     </section>
