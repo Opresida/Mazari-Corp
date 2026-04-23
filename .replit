@@ -1,4 +1,8 @@
 modules = ["nodejs-24"]
+run = "cd artifacts/mazari-corp && pnpm dev"
+
+[[artifacts]]
+id = "artifacts/mazari-corp"
 
 [[artifacts]]
 id = "artifacts/api-server"
@@ -13,6 +17,10 @@ deploymentTarget = "autoscale"
 [deployment.postBuild]
 args = ["pnpm", "store", "prune"]
 env = { "CI" = "true" }
+
+[[ports]]
+localPort = 5000
+externalPort = 80
 
 [workflows]
 runButton = "Project"
