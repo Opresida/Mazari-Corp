@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
   --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -132,6 +133,58 @@
   .eyebrow {
     @apply text-xs font-bold uppercase tracking-[0.1em] text-primary mb-4 block;
   }
+  /* === Mazari Upgrade Utilities === */
+  .mz-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+  .mz-tag {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #D2FF28;
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid rgba(210, 255, 40, 0.25);
+    border-radius: 3px;
+    background: rgba(210, 255, 40, 0.04);
+  }
+  .mz-splitter {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(210, 255, 40, 0.35) 50%, transparent 100%);
+  }
+  .mz-splitter-vert {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(210, 255, 40, 0.25) 50%, transparent 100%);
+  }
+  .mz-grid-bg {
+    background-image:
+      linear-gradient(rgba(210, 255, 40, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(210, 255, 40, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .mz-glow {
+    filter: drop-shadow(0 0 20px rgba(210, 255, 40, 0.35));
+  }
+  .mz-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #D2FF28;
+    box-shadow: 0 0 10px rgba(210, 255, 40, 0.7), 0 0 20px rgba(210, 255, 40, 0.3);
+    display: inline-block;
+    flex-shrink: 0;
+    animation: mz-dot-pulse 2.6s ease-in-out infinite;
+  }
+  .mz-card-soft {
+    background: rgba(22, 24, 22, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(210, 255, 40, 0.12);
+    border-radius: 6px;
+  }
 }
 
 @keyframes marquee {
@@ -147,4 +200,22 @@
 @keyframes hexDrift {
   0% { background-position: 0 0; }
   100% { background-position: 60px 52px; }
+}
+
+@keyframes mz-dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(210, 255, 40, 0.7), 0 0 20px rgba(210, 255, 40, 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(210, 255, 40, 0.9), 0 0 28px rgba(210, 255, 40, 0.5);
+    opacity: 0.85;
+  }
+}
+
+@keyframes mz-scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
 }

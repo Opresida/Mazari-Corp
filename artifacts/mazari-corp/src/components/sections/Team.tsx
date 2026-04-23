@@ -43,14 +43,14 @@ export function Team() {
           />
 
           <div className="w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center mx-auto mb-6">
-            <span className="text-2xl font-extrabold text-primary">HM</span>
+            <span className="text-2xl font-extrabold text-primary">MZ</span>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-1">Humberto Mazari</h3>
-          <p className="text-primary font-semibold text-sm tracking-wider uppercase mb-6">Fundador & CEO</p>
+          <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-1">Liderança Sênior</h3>
+          <p className="text-primary font-semibold text-sm tracking-wider uppercase mb-6">Fundação & Direção</p>
 
           <p className="text-muted-foreground leading-relaxed max-w-lg mx-auto">
-            Mais de uma década construindo tecnologia para empresas em 5 continentes. Engenheiro de software, especialista em blockchain e estrategista de negócios internacionais. Na Mazari Corp, cada projeto tem envolvimento direto da liderança — porque escala sem excelência é só volume.
+            Mais de uma década construindo tecnologia para empresas em 5 continentes. Engenharia de software, especialização em blockchain e estratégia de negócios internacionais. Na Mazari Corp, cada projeto tem envolvimento direto da liderança — porque escala sem excelência é só volume.
           </p>
         </motion.div>
 

@@ -1,84 +1,119 @@
-import { motion } from "framer-motion";
-import { Search, PenTool, Code2, Rocket } from "lucide-react";
+import { motion } from 'framer-motion'
+import { Search, PenTool, Code2, Rocket } from 'lucide-react'
+import { SplitText } from '../ui/SplitText'
+import { StepCard, type SubTask } from '../ui/StepCard'
+import { GradientSplitter } from '../ui/GradientSplitter'
 
-const steps = [
+const steps: Array<{
+  icon: typeof Search
+  number: number
+  title: string
+  description: string
+  subtasks: SubTask[]
+}> = [
   {
     icon: Search,
-    number: "01",
-    title: "Imersão",
-    description: "Mergulhamos no seu negócio, mercado e objetivos. Sem briefing genérico — entendemos o contexto real antes de propor qualquer solução.",
+    number: 1,
+    title: 'Imersão',
+    description:
+      'Mergulhamos no seu negócio, mercado e objetivos. Sem briefing genérico — entendemos o contexto real antes de propor qualquer solução.',
+    subtasks: [
+      { title: 'Workshop de descoberta', detail: 'Stakeholders, objetivos, restrições' },
+      { title: 'Análise competitiva', detail: 'Benchmark de mercado e tecnologia' },
+      { title: 'Mapa de riscos', detail: 'Técnicos, regulatórios, operacionais' },
+      { title: 'Definição de sucesso', detail: 'KPIs mensuráveis' },
+    ],
   },
   {
     icon: PenTool,
-    number: "02",
-    title: "Arquitetura",
-    description: "Desenhamos a solução técnica completa: stack, infraestrutura, cronograma e métricas de sucesso. Você aprova antes de qualquer linha de código.",
+    number: 2,
+    title: 'Arquitetura',
+    description:
+      'Desenhamos a solução técnica completa: stack, infraestrutura, cronograma e métricas de sucesso. Você aprova antes de qualquer linha de código.',
+    subtasks: [
+      { title: 'Diagrama de sistema', detail: 'Módulos, fluxos de dados, integrações' },
+      { title: 'Stack definido', detail: 'Frameworks, banco, infra, segurança' },
+      { title: 'Cronograma de sprints', detail: 'Entregas e marcos de validação' },
+      { title: 'Aprovação formal', detail: 'Você assina antes do primeiro commit' },
+    ],
   },
   {
     icon: Code2,
-    number: "03",
-    title: "Construção",
-    description: "Sprints curtos com entregas visíveis. Cada ciclo tem revisão, teste e validação. Você acompanha tudo em tempo real.",
+    number: 3,
+    title: 'Construção',
+    description:
+      'Sprints curtos com entregas visíveis. Cada ciclo tem revisão, teste e validação. Você acompanha tudo em tempo real.',
+    subtasks: [
+      { title: 'Ambiente de staging', detail: 'Acesso contínuo ao produto em evolução' },
+      { title: 'Code review + testes', detail: 'Qualidade institucional em cada PR' },
+      { title: 'Sync quinzenal', detail: 'Demo do que foi entregue, ajustes na rota' },
+      { title: 'Documentação viva', detail: 'Wiki técnica e runbooks' },
+    ],
   },
   {
     icon: Rocket,
-    number: "04",
-    title: "Escala",
-    description: "Lançamos, monitoramos e otimizamos. A Mazari não desaparece após a entrega — continuamos até o resultado estar consolidado.",
+    number: 4,
+    title: 'Escala',
+    description:
+      'Lançamos, monitoramos e otimizamos. A Mazari não desaparece após a entrega — continuamos até o resultado estar consolidado.',
+    subtasks: [
+      { title: 'Deploy em produção', detail: 'Observabilidade + alertas configurados' },
+      { title: 'Performance tuning', detail: 'Latência, custos, throughput' },
+      { title: 'Hand-off ou continuidade', detail: 'Seu time assume, ou operamos juntos' },
+      { title: 'Otimização contínua', detail: 'Iterações baseadas em dados reais' },
+    ],
   },
-];
+]
 
 export function Process() {
   return (
-    <section id="processo" className="py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="processo" className="relative py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-16 max-w-3xl"
         >
-          <span className="eyebrow">Nosso Processo</span>
-          <h2 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-3xl mx-auto">
-            Metodologia que Elimina Achismo{" "}
+          <div className="mz-tag mb-5">Nosso Processo</div>
+          <h2 className="text-[30px] sm:text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-tight">
+            <SplitText text="Metodologia que Elimina Achismo" as="span" />{' '}
             <span className="text-primary italic font-serif font-medium text-glow">
-              e Entrega Resultado.
+              <SplitText text="e Entrega Resultado." as="span" delay={0.3} />
             </span>
           </h2>
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed max-w-2xl">
+            4 etapas encadeadas que eliminam retrabalho e garantem entrega com previsibilidade.
+            Cada etapa tem entregas concretas e ponto de aprovação — você nunca é surpreendido.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8 relative">
-          {/* Connector line (desktop) */}
-          <div className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative text-center group"
-            >
-              {/* Step circle */}
-              <div className="relative mx-auto mb-6">
-                <div className="w-[72px] h-[72px] rounded-full border-2 border-white/10 group-hover:border-primary/50 bg-card flex items-center justify-center mx-auto transition-all duration-300 relative z-10">
-                  <step.icon className="w-7 h-7 text-primary" />
-                </div>
-                {/* Pulse ring */}
-                <div className="absolute inset-0 w-[72px] h-[72px] rounded-full border border-primary/20 mx-auto animate-ping opacity-0 group-hover:opacity-100" style={{ animationDuration: '2s' }} />
+        {/* Grid de 4 StepCards */}
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {steps.map((step, i) => {
+            const Icon = step.icon
+            return (
+              <div key={step.number} className="relative">
+                <StepCard
+                  stepNumber={step.number}
+                  title={step.title}
+                  icon={<Icon className="h-4 w-4" />}
+                  description={step.description}
+                  subtasks={step.subtasks}
+                />
+                {/* Splitter vertical entre cards (desktop) */}
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-0 -right-4 h-full">
+                    <GradientSplitter orientation="vertical" />
+                  </div>
+                )}
               </div>
-
-              <span className="text-xs font-bold text-primary/60 tracking-widest uppercase mb-2 block">
-                Etapa {step.number}
-              </span>
-              <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-            </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
-  );
+  )
 }

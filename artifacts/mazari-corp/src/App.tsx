@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { useState, useEffect } from "react";
+import { useLenis } from "@/lib/useLenis";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function Router() {
 function App() {
   const [showLoader, setShowLoader] = useState(true);
   const [contentReady, setContentReady] = useState(false);
+  useLenis();
 
   useEffect(() => {
     const timer = setTimeout(() => {

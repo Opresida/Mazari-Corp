@@ -3,7 +3,7 @@ import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
 
 const MAZARI_PHRASES = [
   "Engenharia de Precisão",
-  "Blockchain sem Compromisso",
+  "Blockchain Intocável",
   "Inteligência que Escala",
   "Código que Transforma",
 ];
@@ -30,7 +30,7 @@ function useBreakpoint(): Breakpoint {
 }
 
 const FONT_CONFIG: Record<Breakpoint, { fontSize: string; containerH: string }> = {
-  mobile:  { fontSize: "30px",  containerH: "h-[80px]"  },
+  mobile:  { fontSize: "22px",  containerH: "h-[64px]"  },
   tablet:  { fontSize: "46px",  containerH: "h-[110px]" },
   desktop: { fontSize: "64px",  containerH: "h-[160px]" },
 };
@@ -45,7 +45,7 @@ export function VapourStatement() {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-primary/5 blur-[120px]" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 flex flex-col items-center gap-5 text-center">
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 flex flex-col items-center gap-5 text-center">
         <p className="text-sm font-semibold tracking-widest text-primary uppercase">
           Nossa Visão
         </p>
@@ -73,7 +73,7 @@ export function VapourStatement() {
           />
         </div>
 
-        <p className="max-w-xl text-muted-foreground text-base md:text-lg leading-relaxed">
+        <p className="max-w-xl text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
           Tecnologia de classe mundial. Execução sem desculpas. Resultados que falam.
         </p>
       </div>
