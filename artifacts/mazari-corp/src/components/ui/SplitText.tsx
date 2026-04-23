@@ -44,9 +44,9 @@ export function SplitText({
             return (
               <motion.span
                 key={`${char}-${i}`}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 4 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once, margin: '-10%' }}
+                viewport={{ once, margin: '0px' }}
                 transition={{ duration: 0.4, delay: randomDelay, ease: 'easeOut' }}
                 style={{ display: 'inline-block' }}
               >
