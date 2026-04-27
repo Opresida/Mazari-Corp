@@ -219,3 +219,59 @@
   80% { opacity: 1; }
   100% { transform: translateY(100%); opacity: 0; }
 }
+
+@keyframes pdi-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes mz-cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes pentest-pulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(255, 59, 48, 0.5); }
+  50%      { opacity: 0.7; text-shadow: 0 0 16px rgba(255, 59, 48, 0.9); }
+}
+
+@keyframes pentest-scan-line {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes pentest-grid-drift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+@keyframes pentest-bug-rise {
+  0%   { transform: translate(-50%, 100vh) rotate(-8deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translate(-50%, -10vh) rotate(8deg); opacity: 1; }
+}
+
+@keyframes pentest-bug-glitch {
+  0%, 100% { transform: translate(-50%, -50%); }
+  20%      { transform: translate(-52%, -48%) skew(-3deg); }
+  40%      { transform: translate(-48%, -52%) skew(2deg); }
+  60%      { transform: translate(-51%, -49%) skew(-1deg); }
+  80%      { transform: translate(-49%, -51%) skew(1deg); }
+}
+
+@keyframes pentest-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pentest-loader-fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes pentest-progress-fill {
+  0%   { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}

@@ -5,6 +5,8 @@ import { About } from '@/components/sections/About'
 import { Desenvolvimento } from '@/components/sections/Desenvolvimento'
 import { StackTecnico } from '@/components/sections/StackTecnico'
 import { Blockchain } from '@/components/sections/Blockchain'
+import { PesquisaDesenvolvimento } from '@/components/sections/PesquisaDesenvolvimento'
+import { PentestSection } from '@/components/sections/PentestSection'
 import { VapourStatement } from '@/components/sections/VapourStatement'
 import { Process } from '@/components/sections/Process'
 import { Cases } from '@/components/sections/Cases'
@@ -29,6 +31,10 @@ export default function Home() {
         <StackTecnico />
         <GradientSplitter />
         <Blockchain />
+        <GradientSplitter />
+        <PesquisaDesenvolvimento />
+        <GradientSplitter />
+        <PentestSection />
         <GradientSplitter />
         <VapourStatement />
         <GradientSplitter />
