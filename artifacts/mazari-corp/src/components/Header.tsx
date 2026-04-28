@@ -83,7 +83,7 @@ export function Header() {
         <div className="flex items-center gap-2 text-primary/70">
           <span>v1.0</span>
           <span className="text-white/25">·</span>
-          <span>mazari.corp</span>
+          <span>mazaricorp.com</span>
         </div>
       </div>
 
@@ -264,7 +264,7 @@ export function Header() {
                       </span>
                     </a>
                     <a
-                      href="mailto:contato@mazari.corp"
+                      href="mailto:contato@mazaricorp.com"
                       onClick={() => setMobileMenuOpen(false)}
                       className="mz-card-soft flex items-center gap-2 px-3 py-3 active:border-primary/40 active:scale-[0.98] transition-all"
                     >

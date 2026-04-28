@@ -95,50 +95,15 @@ function ScreenInfra() {
   )
 }
 
-// Dot map 60×24 — '#' = terra, ' ' = oceano. Projeção equirectangular.
-const WORLD_MAP: string[] = [
-  '                                                            ',
-  '             ##                           ##                ',
-  '     #####   ###       ###    #############                ',
-  '    #########  ##    #####    ##################           ',
-  '   ############    #######    ########################     ',
-  '   ##############  #######    #########################    ',
-  '    ##############  ###       ####   ##################    ',
-  '     ############      ####   ####   #################  ## ',
-  '      ##########       #####  ####   ############    ###   ',
-  '       ########         ####   ####  ###########           ',
-  '        #####   #       ####   ##### #########  ##         ',
-  '         ####              ####### #######  #   ####       ',
-  '          ######           #######   ####      #####       ',
-  '          #######        #######     #          ####   ##  ',
-  '          ########        ######                 ######    ',
-  '           #######         #####                   ####    ',
-  '            ######          ####                  ####     ',
-  '            #####           ##                     ###     ',
-  '             ####                                    #     ',
-  '              ##                                           ',
-  '               #                                           ',
-  '        ###################                                ',
-  '       #####################                               ',
-  '         ###############                                   ',
-]
-
 function ScreenGlobal() {
   const nodes = [
-    { x: 23.7, y: 21.1, city: 'Austin' },     // US (30°N, -97°)
-    { x: 34.2, y: 32.3, city: 'Manaus' },     // BR (-3°, -60°)
-    { x: 48.3, y: 18.4, city: 'Lisboa' },     // PT (38°N, -9°)
-    { x: 66.2, y: 22.9, city: 'Dubai' },      // AE (25°N, 55°)
-    { x: 79.7, y: 30.8, city: 'Singapura' },  // SG (1°N, 103°)
+    { city: 'Austin' },
+    { city: 'Manaus' },
+    { city: 'Lisboa' },
+    { city: 'Dubai' },
+    { city: 'Singapura' },
   ]
 
-  // Dimensões do viewBox e da matriz
-  const VB_W = 100
-  const VB_H = 60
-  const COLS = 60
-  const ROWS = 24
-  const dx = VB_W / COLS
-  const dy = VB_H / ROWS
   return (
     <div className="mz-card-soft p-4 sm:p-6 md:p-8 h-full flex flex-col gap-5 relative overflow-hidden">
       <div className="flex items-center justify-between">
@@ -149,65 +114,17 @@ function ScreenGlobal() {
         <span className="mz-tag">5 continentes</span>
       </div>
 
-      {/* Dot map mundial */}
-      <div className="relative rounded-md border border-white/10 bg-background/60 p-4">
-        <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="w-full h-auto">
-          {/* Equador + Greenwich — referência sutil */}
-          <g stroke="rgba(210,255,40,0.07)" strokeWidth="0.15">
-            <line x1="0" y1={VB_H / 2} x2={VB_W} y2={VB_H / 2} />
-            <line x1={VB_W / 2} y1="0" x2={VB_W / 2} y2={VB_H} />
-          </g>
-
-          {/* Pontos formando os continentes */}
-          <g fill="rgba(210,255,40,0.45)">
-            {WORLD_MAP.flatMap((line, row) => {
-              const padded = line.padEnd(COLS, ' ')
-              const dots: React.ReactNode[] = []
-              for (let col = 0; col < COLS; col++) {
-                if (padded[col] === '#') {
-                  const cx = col * dx + dx / 2
-                  const cy = row * dy + dy / 2
-                  dots.push(
-                    <circle
-                      key={`${row}-${col}`}
-                      cx={cx}
-                      cy={cy}
-                      r={0.55}
-                    />,
-                  )
-                }
-              }
-              return dots
-            })}
-          </g>
-
-          {/* Hubs pulsantes */}
-          {nodes.map((n) => (
-            <g key={n.city}>
-              <circle cx={n.x} cy={n.y} r="2.5" fill="rgba(210,255,40,0.18)">
-                <animate
-                  attributeName="r"
-                  values="2;4;2"
-                  dur="2.6s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0.55;0.1;0.55"
-                  dur="2.6s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle
-                cx={n.x}
-                cy={n.y}
-                r="1.3"
-                fill="#D2FF28"
-                style={{ filter: 'drop-shadow(0 0 3px rgba(210,255,40,0.9))' }}
-              />
-            </g>
-          ))}
-        </svg>
+      {/* Globo Mazari — vídeo */}
+      <div className="relative rounded-md border border-white/10 bg-background/60 p-4 overflow-hidden">
+        <video
+          src="/videos/globo_mazari_3840x2160.webm"
+          className="w-full h-auto block"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-2 mz-mono text-[10px]">
