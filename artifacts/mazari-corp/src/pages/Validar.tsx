@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'wouter'
 import { PDFDocument } from 'pdf-lib'
-import { ArrowLeft, Upload, ShieldCheck, ShieldAlert, FileSearch, Loader2, Hash } from 'lucide-react'
+import { ArrowLeft, Upload, ShieldCheck, ShieldAlert, FileSearch, Loader2, Hash, FileCheck2 } from 'lucide-react'
 import { sha256Hex, parseMarker, type MazariMarker } from '@/lib/doc-hash'
 
-type Verdict = 'idle' | 'checking' | 'match' | 'stamped' | 'nomatch' | 'nohash' | 'error'
+type Mode = 'documento' | 'hash'
+type Verdict = 'idle' | 'match' | 'stamped' | 'nomatch' | 'nohash' | 'error'
 
 function getExpectedFromUrl(): string {
   if (typeof window === 'undefined') return ''
@@ -18,31 +19,49 @@ function normalizeHash(raw: string): string {
 
 export default function Validar() {
   const fileRef = useRef<HTMLInputElement>(null)
+  const [mode, setMode] = useState<Mode>('documento')
   const [expected, setExpected] = useState('')
   const [fromQr, setFromQr] = useState(false)
+  const [file, setFile] = useState<File | null>(null)
+  const [fileName, setFileName] = useState('')
+
+  const [validating, setValidating] = useState(false)
+  const [verdict, setVerdict] = useState<Verdict>('idle')
   const [computed, setComputed] = useState('')
   const [marker, setMarker] = useState<MazariMarker | null>(null)
-  const [checking, setChecking] = useState(false)
-  const [readError, setReadError] = useState(false)
-  const [fileName, setFileName] = useState('')
 
   useEffect(() => {
     const fromUrl = getExpectedFromUrl()
     if (fromUrl) {
       setExpected(fromUrl)
       setFromQr(true)
+      setMode('hash')
     }
   }, [])
 
-  const check = async (f: File | null) => {
-    if (!f) return
-    setChecking(true)
-    setReadError(false)
-    setFileName(f.name)
-    setMarker(null)
+  const resetResult = () => {
+    setVerdict('idle')
     setComputed('')
+    setMarker(null)
+  }
+
+  const pickFile = (f: File | null) => {
+    if (!f) return
+    setFile(f)
+    setFileName(f.name)
+    resetResult()
+  }
+
+  const expectedClean = normalizeHash(expected)
+  const hashReady = expectedClean.length === 64
+  const canValidate = !!file && (mode === 'documento' || hashReady)
+
+  const validate = async () => {
+    if (!file || !canValidate) return
+    setValidating(true)
+    resetResult()
     try {
-      const bytes = new Uint8Array(await f.arrayBuffer())
+      const bytes = new Uint8Array(await file.arrayBuffer())
       const hash = await sha256Hex(bytes)
       let mk: MazariMarker | null = null
       try {
@@ -51,26 +70,20 @@ export default function Validar() {
       } catch {
         mk = null
       }
-      setMarker(mk)
       setComputed(hash)
+      setMarker(mk)
+
+      const target = (mode === 'hash' ? expectedClean : '') || mk?.hash || ''
+      if (target && hash === target) setVerdict('match')
+      else if (mk) setVerdict('stamped')
+      else if (target) setVerdict('nomatch')
+      else setVerdict('nohash')
     } catch {
-      setReadError(true)
+      setVerdict('error')
     } finally {
-      setChecking(false)
+      setValidating(false)
     }
   }
-
-  // Veredito reativo: reage ao arquivo (computed/marker) E ao hash digitado (expected)
-  const verdict = useMemo<Verdict>(() => {
-    if (checking) return 'checking'
-    if (readError) return 'error'
-    if (!computed) return 'idle'
-    const target = normalizeHash(expected) || marker?.hash || ''
-    if (!target) return 'nohash'
-    if (computed === target) return 'match'
-    if (marker) return 'stamped'
-    return 'nomatch'
-  }, [checking, readError, computed, expected, marker])
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-black">
@@ -98,53 +111,91 @@ export default function Validar() {
             <span className="text-primary italic font-serif font-medium text-glow">por hash criptográfico.</span>
           </h1>
           <p className="text-base text-white/60 leading-relaxed max-w-xl">
-            Cole o hash recebido, envie o documento e confirme na hora se ele é o original. Tudo roda no seu navegador — o arquivo não é enviado a nenhum servidor.
+            Escolha como quer validar. Tudo roda no seu navegador — o arquivo não é enviado a nenhum servidor.
           </p>
         </div>
 
-        {/* Passo 1 — Hash esperado (editável; vem do QR se houver) */}
-        <div className="rounded-md border border-white/10 bg-background/40 p-5 flex flex-col gap-3">
-          <div className="flex items-center gap-2 mz-mono text-[10px] uppercase tracking-widest text-white/45">
-            <Hash className="h-3.5 w-3.5 text-primary" />
-            Passo 1 · Hash esperado
-            {fromQr && <span className="mz-tag" style={{ fontSize: 9 }}>via QR Code</span>}
-          </div>
-          <input
-            value={expected}
-            onChange={(e) => {
-              setExpected(e.target.value)
-              setFromQr(false)
-            }}
-            placeholder="Cole aqui o hash SHA-256 (64 caracteres) que você recebeu"
-            spellCheck={false}
-            className="w-full rounded-md border border-white/12 bg-background/60 px-3 py-2.5 mz-mono text-[12px] text-white placeholder:text-white/30 break-all focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+        {/* Seletor de modo */}
+        <div className="grid grid-cols-2 gap-3">
+          <ModeButton
+            active={mode === 'documento'}
+            onClick={() => { setMode('documento'); resetResult() }}
+            icon={<FileCheck2 className="h-4 w-4" />}
+            title="Com o documento"
+            desc="Tenho o PDF certificado pela Mazari"
           />
-          <p className="text-[11px] text-white/40 leading-snug">
-            Opcional se o PDF já tiver o certificado Mazari embutido — nesse caso o hash é lido automaticamente do arquivo.
-          </p>
+          <ModeButton
+            active={mode === 'hash'}
+            onClick={() => { setMode('hash'); resetResult() }}
+            icon={<Hash className="h-4 w-4" />}
+            title="Com o hash"
+            desc="Recebi o hash e quero comparar"
+          />
         </div>
 
-        {/* Passo 2 — Documento */}
-        <div className="flex flex-col gap-2">
-          <div className="mz-mono text-[10px] uppercase tracking-widest text-white/45">Passo 2 · Documento</div>
-          <button
-            type="button"
-            onClick={() => fileRef.current?.click()}
-            className="flex w-full flex-col items-center gap-3 rounded-md border border-dashed border-white/15 px-4 py-10 text-center transition-colors hover:border-primary/40"
-          >
-            <Upload className="h-8 w-8 text-white/40" />
-            <span className="text-sm text-white/80">{fileName || 'Clique para enviar o documento PDF'}</span>
-            <span className="mz-mono text-[10px] uppercase tracking-widest text-white/40">Envie o documento original para confirmar integridade</span>
-          </button>
-          <input ref={fileRef} type="file" accept="application/pdf,.pdf" className="hidden" onChange={(e) => check(e.target.files?.[0] ?? null)} />
-        </div>
-
-        {verdict === 'checking' && (
-          <div className="flex items-center justify-center gap-2 text-white/60 py-6">
-            <Loader2 className="h-5 w-5 animate-spin text-primary" /> Calculando hash…
+        {/* Campo de hash (somente modo hash) */}
+        {mode === 'hash' && (
+          <div className="rounded-md border border-white/10 bg-background/40 p-5 flex flex-col gap-3">
+            <div className="flex items-center gap-2 mz-mono text-[10px] uppercase tracking-widest text-white/45">
+              <Hash className="h-3.5 w-3.5 text-primary" />
+              Hash esperado
+              {fromQr && <span className="mz-tag" style={{ fontSize: 9 }}>via QR Code</span>}
+            </div>
+            <input
+              value={expected}
+              onChange={(e) => { setExpected(e.target.value); setFromQr(false); resetResult() }}
+              placeholder="Cole aqui o hash SHA-256 (64 caracteres) que você recebeu"
+              spellCheck={false}
+              className={`w-full rounded-md border bg-background/60 px-3 py-2.5 mz-mono text-[12px] text-white placeholder:text-white/30 break-all focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors ${
+                hashReady ? 'border-primary/50' : expectedClean.length > 0 ? 'border-amber-500/50' : 'border-white/12 focus:border-primary/50'
+              }`}
+            />
+            {expectedClean.length > 0 && !hashReady && (
+              <p className="text-[11px] text-amber-400/80 leading-snug">
+                Hash incompleto — {expectedClean.length}/64 caracteres (0–9, a–f).
+              </p>
+            )}
           </div>
         )}
 
+        {/* Documento (sempre) */}
+        <div className="flex flex-col gap-2">
+          <div className="mz-mono text-[10px] uppercase tracking-widest text-white/45">Documento</div>
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            className={`flex w-full flex-col items-center gap-3 rounded-md border border-dashed px-4 py-10 text-center transition-colors hover:border-primary/40 ${
+              file ? 'border-primary/40 bg-primary/[0.03]' : 'border-white/15'
+            }`}
+          >
+            {file ? <FileCheck2 className="h-8 w-8 text-primary" /> : <Upload className="h-8 w-8 text-white/40" />}
+            <span className="text-sm text-white/80">{fileName || 'Clique para enviar o documento PDF'}</span>
+            <span className="mz-mono text-[10px] uppercase tracking-widest text-white/40">
+              {mode === 'hash' ? 'Envie o documento original para comparar com o hash' : 'Envie o PDF certificado pela Mazari'}
+            </span>
+          </button>
+          <input ref={fileRef} type="file" accept="application/pdf,.pdf" className="hidden" onChange={(e) => pickFile(e.target.files?.[0] ?? null)} />
+        </div>
+
+        {/* Botão validar */}
+        <button
+          type="button"
+          onClick={validate}
+          disabled={!canValidate || validating}
+          className="flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-bold text-background transition-all hover:brightness-110 box-glow disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          {validating ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShieldCheck className="h-4 w-4" />}
+          {validating ? 'Validando…' : 'Validar emissão de documento'}
+        </button>
+        {!canValidate && (
+          <p className="-mt-4 text-center text-[11px] text-white/40">
+            {!file
+              ? 'Envie o documento para habilitar a validação.'
+              : 'Cole um hash SHA-256 válido (64 caracteres) para validar.'}
+          </p>
+        )}
+
+        {/* Resultado */}
         {verdict === 'match' && (
           <ResultCard
             tone="ok"
@@ -155,18 +206,16 @@ export default function Validar() {
             computed={computed}
           />
         )}
-
         {verdict === 'stamped' && (
           <ResultCard
             tone="info"
             icon={<FileSearch className="h-7 w-7 text-primary" />}
-            title="Certificado Mazari detectado"
-            subtitle="Este é o PDF com a página de certificado. O hash certifica o documento original (pré-certificado) — envie o arquivo original, ou compare o hash certificado abaixo."
+            title="Emissão Mazari confirmada"
+            subtitle="Este PDF carrega um certificado de emissão Mazari. Os dados certificados estão abaixo. Para conferir a integridade do conteúdo, valide o documento original pelo hash."
             marker={marker}
             computed={computed}
           />
         )}
-
         {verdict === 'nomatch' && (
           <ResultCard
             tone="warn"
@@ -177,20 +226,18 @@ export default function Validar() {
             computed={computed}
           />
         )}
-
         {verdict === 'nohash' && (
           <div className="rounded-md border border-white/15 bg-background/60 p-5 flex flex-col gap-3">
             <div className="flex items-center gap-2 text-white/80">
               <Hash className="h-5 w-5 text-primary" />
-              <span className="text-sm font-bold">Hash calculado</span>
+              <span className="text-sm font-bold">Sem certificado embutido</span>
             </div>
             <p className="text-sm text-white/55 leading-snug">
-              Cole o hash esperado no Passo 1 para comparar — ou este é o hash deste documento:
+              Este PDF não tem um certificado Mazari embutido. Para validar a emissão, use o modo “Com o hash” e cole o hash recebido. Hash deste arquivo:
             </p>
             <div className="mz-mono text-[11px] text-white/80 break-all rounded border border-white/10 bg-background/60 p-3">{computed}</div>
           </div>
         )}
-
         {verdict === 'error' && (
           <div className="rounded-md border border-red-500/30 bg-red-500/[0.06] px-4 py-3 text-sm text-red-300">
             Não foi possível ler o arquivo. Confirme que é um PDF válido.
@@ -202,6 +249,32 @@ export default function Validar() {
         </div>
       </div>
     </div>
+  )
+}
+
+function ModeButton({
+  active, onClick, icon, title, desc,
+}: {
+  active: boolean
+  onClick: () => void
+  icon: React.ReactNode
+  title: string
+  desc: string
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex flex-col gap-1.5 rounded-md border p-4 text-left transition-all ${
+        active ? 'border-primary/40 bg-primary/[0.05]' : 'border-white/10 bg-background/40 hover:border-white/25'
+      }`}
+    >
+      <span className={`flex items-center gap-2 text-sm font-bold ${active ? 'text-primary' : 'text-white/85'}`}>
+        {icon}
+        {title}
+      </span>
+      <span className="text-[11px] text-white/50 leading-snug">{desc}</span>
+    </button>
   )
 }
 
