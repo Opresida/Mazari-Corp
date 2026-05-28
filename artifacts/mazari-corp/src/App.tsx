@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Brandbook from "@/pages/Brandbook";
+import Validar from "@/pages/Validar";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { useState, useEffect } from "react";
 import { useLenis } from "@/lib/useLenis";
@@ -16,6 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/brandbook" component={Brandbook} />
+      <Route path="/validar" component={Validar} />
       <Route component={NotFound} />
     </Switch>
   );

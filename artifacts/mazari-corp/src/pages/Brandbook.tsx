@@ -15,6 +15,8 @@ import {
   Layout,
   FileText,
   Download,
+  ReceiptText,
+  ShieldCheck,
   ChevronRight,
 } from 'lucide-react'
 import { GradientSplitter } from '@/components/ui/GradientSplitter'
@@ -30,6 +32,8 @@ import { TabMotion } from '@/components/brandbook/TabMotion'
 import { TabApplications } from '@/components/brandbook/TabApplications'
 import { TabProposal } from '@/components/brandbook/TabProposal'
 import { TabDownloads } from '@/components/brandbook/TabDownloads'
+import { TabRecibo } from '@/components/brandbook/TabRecibo'
+import { TabAutenticar } from '@/components/brandbook/TabAutenticar'
 
 interface TabDef {
   id: string
@@ -52,7 +56,9 @@ const TABS: TabDef[] = [
   { id: 'motion', label: 'Movimento', shortLabel: 'Motion', icon: Zap, number: '09', Component: TabMotion },
   { id: 'applications', label: 'Aplicações', shortLabel: 'Apps', icon: Layout, number: '10', Component: TabApplications },
   { id: 'proposal', label: 'Proposta Comercial', shortLabel: 'Proposta', icon: FileText, number: '11', Component: TabProposal },
-  { id: 'downloads', label: 'Downloads', shortLabel: 'Assets', icon: Download, number: '12', Component: TabDownloads },
+  { id: 'recibo', label: 'Recibo', shortLabel: 'Recibo', icon: ReceiptText, number: '12', Component: TabRecibo },
+  { id: 'autenticar', label: 'Autenticar', shortLabel: 'Auth', icon: ShieldCheck, number: '13', Component: TabAutenticar },
+  { id: 'downloads', label: 'Downloads', shortLabel: 'Assets', icon: Download, number: '14', Component: TabDownloads },
 ]
 
 function getInitialTab(): string {
