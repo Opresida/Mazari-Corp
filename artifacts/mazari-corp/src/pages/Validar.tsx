@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'wouter'
 import { PDFDocument } from 'pdf-lib'
-import { ArrowLeft, Upload, ShieldCheck, ShieldAlert, FileSearch, Loader2, Hash, FileCheck2 } from 'lucide-react'
+import { ArrowLeft, Upload, ShieldCheck, ShieldAlert, Loader2, Hash, FileCheck2 } from 'lucide-react'
 import { sha256Hex, parseMarker, type MazariMarker } from '@/lib/doc-hash'
 
 type Mode = 'documento' | 'hash'
@@ -208,10 +208,10 @@ export default function Validar() {
         )}
         {verdict === 'stamped' && (
           <ResultCard
-            tone="info"
-            icon={<FileSearch className="h-7 w-7 text-primary" />}
-            title="Emissão Mazari confirmada"
-            subtitle="Este PDF carrega um certificado de emissão Mazari. Os dados certificados estão abaixo. Para conferir a integridade do conteúdo, valide o documento original pelo hash."
+            tone="ok"
+            icon={<ShieldCheck className="h-7 w-7 text-primary" />}
+            title="Documento autêntico — emissão MAZARI verificada"
+            subtitle="Este documento carrega o certificado de emissão da Mazari. A autenticidade da emissão está confirmada, com os dados certificados abaixo."
             marker={marker}
             computed={computed}
           />
