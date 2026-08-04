@@ -20,7 +20,7 @@ const researchers: Researcher[] = [
     name: 'Wellington Uchôa Pinheiro',
     title: 'Pesquisador Desenvolvedor Sênior',
     bio: 'Full-Stack com foco em React Native/TypeScript (mobile) e Python (FastAPI), com experiência em Java (Spring Boot) e sistemas distribuídos (Blockchain). Tecnólogo em ADS, pós em Engenharia de Software.',
-    photo: 'https://i.imgur.com/5uxlQp7.png',
+    photo: '/images/sections/pdi-1.webp',
     lattesUrl: 'http://lattes.cnpq.br/6673765898617922',
     lattesId: '6673765898617922',
     initials: 'WP',
@@ -29,14 +29,14 @@ const researchers: Researcher[] = [
     name: 'Danton Duarte',
     title: 'Game Developer & Platform Creator',
     bio: 'Especialista em Solidity, Unity 3D, Unreal Engine e blockchain. Dezenas de projetos: jogos mobile, MMOs, plataformas DeFi e NFTs em Ethereum, Solana, BSC e Polygon. Consultor de tecnologia para startups.',
-    photo: 'https://i.imgur.com/PGPcUoc.png',
+    photo: '/images/sections/pdi-2.webp',
     initials: 'DD',
   },
   {
     name: 'Nayara Dayane',
     title: 'Diretora Executiva MAZARI',
     bio: 'Estrategista em marketing digital, desenvolvimento de negócios e estruturação empresarial. Cria modelos escaláveis, sistemas de vendas de alta conversão e operações com foco em crescimento sustentável.',
-    photo: 'https://i.imgur.com/2xCvXCV.png',
+    photo: '/images/sections/pdi-3.webp',
     initials: 'ND',
   },
   {
@@ -124,8 +124,11 @@ function ResearcherCard({ r }: { r: Researcher }) {
         {r.photo ? (
           <img
             src={r.photo}
-            alt={r.name}
+            alt={`${r.name} — ${r.title} na Mazari Corp`}
             loading="lazy"
+            decoding="async"
+            width={1080}
+            height={1080}
             style={{
               width: '100%',
               height: '100%',

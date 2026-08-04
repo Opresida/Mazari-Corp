@@ -1,4 +1,5 @@
 services:
+  # ── Site institucional (estático) — mazaricorp.com ─────────────
   - type: web
     name: mazari-corp
     runtime: static
@@ -16,12 +17,58 @@ services:
         source: /*
         destination: /index.html
     headers:
+      # Assets com hash no nome — cache eterno
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
+      # Arquivos de SEO — cache curto para o Google pegar mudanças rápido
+      - path: /robots.txt
+        name: Cache-Control
+        value: public, max-age=3600
+      - path: /sitemap.xml
+        name: Cache-Control
+        value: public, max-age=3600
+      - path: /og-image.png
+        name: Cache-Control
+        value: public, max-age=604800
+      # O HTML nunca pode ser cacheado: é ele que aponta para os assets novos
+      - path: /index.html
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
       - path: /*
         name: X-Frame-Options
         value: SAMEORIGIN
       - path: /*
         name: Referrer-Policy
         value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
+      - path: /*
+        name: Permissions-Policy
+        value: geolocation=(), microphone=(), camera=()
+
+  # ── NORTOKEN (Node/Express + IA Gemini) — nortoken.mazaricorp.com ─
+  - type: web
+    name: nortoken
+    runtime: node
+    plan: free
+    rootDir: .
+    branch: master
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @workspace/nortoken run build
+    startCommand: pnpm --filter @workspace/nortoken start
+    healthCheckPath: /
+    pullRequestPreviewsEnabled: false
+    domains:
+      - nortoken.mazaricorp.com
+    envVars:
+      - key: NODE_VERSION
+        value: 22.20.0
+      - key: NODE_ENV
+        value: production
+      # Preencher no painel do Render (Secret) — nunca commitar
+      - key: GEMINI_API_KEY
+        sync: false

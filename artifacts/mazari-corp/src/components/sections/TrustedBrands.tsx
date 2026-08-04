@@ -26,7 +26,11 @@ export function TrustedBrands() {
   ]
 
   return (
-    <section className="relative py-16 bg-background overflow-hidden">
+    <section
+      id="tecnologias"
+      aria-label="Tecnologias que a Mazari Corp domina"
+      className="relative py-16 bg-background overflow-hidden"
+    >
       <GradientSplitter className="absolute top-0 left-0" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 mb-8 sm:mb-10 flex items-center justify-between flex-wrap gap-3">
@@ -36,7 +40,8 @@ export function TrustedBrands() {
             Tecnologias que escrevemos em produção todos os dias.
           </p>
         </div>
-        <div className="flex items-center gap-2 mz-mono text-[10px] uppercase tracking-widest text-white/40">
+        {/* text-white/40 sobre o fundo #080908 dava 3.74:1 — abaixo do mínimo 4.5:1 do WCAG AA */}
+        <div className="flex items-center gap-2 mz-mono text-[10px] uppercase tracking-widest text-white/60">
           <span className="mz-dot" /> Live in production
         </div>
       </div>

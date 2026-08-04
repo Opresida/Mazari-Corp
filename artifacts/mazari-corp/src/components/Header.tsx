@@ -3,6 +3,8 @@ import { Link } from 'wouter'
 import { Menu, X, ArrowUpRight, Phone, Mail } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { MzButton } from './ui/MzButton'
+import { CONTACT_EMAIL, WHATSAPP_URL, HAS_WHATSAPP } from '@/lib/contact'
+import { trackEvent } from '@/lib/analytics'
 
 const NAV_LINKS: Array<{ label: string; href: string }> = [
   { label: 'Desenvolvimento', href: '#desenvolvimento' },
@@ -254,18 +256,30 @@ export function Header() {
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <a
-                      href="https://wa.me/"
-                      onClick={() => setMobileMenuOpen(false)}
+                      href={WHATSAPP_URL}
+                      {...(HAS_WHATSAPP
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
+                      onClick={() => {
+                        trackEvent('whatsapp_click', { location: 'menu_mobile' })
+                        setMobileMenuOpen(false)
+                      }}
+                      aria-label={
+                        HAS_WHATSAPP
+                          ? 'Falar com a Mazari Corp pelo WhatsApp'
+                          : 'Ir para a seção de contato'
+                      }
                       className="mz-card-soft flex items-center gap-2 px-3 py-3 active:border-primary/40 active:scale-[0.98] transition-all"
                     >
                       <Phone size={14} className="text-primary flex-shrink-0" />
                       <span className="mz-mono text-[11px] text-white/80 truncate">
-                        WhatsApp
+                        {HAS_WHATSAPP ? 'WhatsApp' : 'Falar agora'}
                       </span>
                     </a>
                     <a
-                      href="mailto:contato@mazaricorp.com"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       onClick={() => setMobileMenuOpen(false)}
+                      aria-label={`Enviar e-mail para ${CONTACT_EMAIL}`}
                       className="mz-card-soft flex items-center gap-2 px-3 py-3 active:border-primary/40 active:scale-[0.98] transition-all"
                     >
                       <Mail size={14} className="text-primary flex-shrink-0" />

@@ -6,7 +6,11 @@ import { GradientSplitter } from '../ui/GradientSplitter'
 
 export function StackTecnico() {
   return (
-    <section className="relative py-28 overflow-hidden">
+    <section
+      id="stack"
+      aria-label="Stack técnico: frontend, backend, blockchain e Web3"
+      className="relative py-28 overflow-hidden"
+    >
       <div
         className="absolute inset-0 mz-grid-bg opacity-60 pointer-events-none"
         aria-hidden="true"

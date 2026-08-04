@@ -107,3 +107,54 @@ Lista de pendências, melhorias planejadas e histórico.
 - **Three.js pra 3D real** — adia ad aeternum. Canvas 2D com projeção manual é suficiente.
 - **Lottie** — descartado por peso/dependência. SVG inline preferido.
 - **Dark / Light mode toggle** — o site é dark-only por decisão de marca.
+
+---
+
+## SEO (2026-08-04)
+
+Trabalho completo documentado em [SEO.md](./SEO.md). Lighthouse mobile: **100 SEO ·
+100 Acessibilidade · 100 Práticas · 100 Agentic Browsing**, 0 auditorias reprovadas.
+
+**Feito**
+- [x] `robots.txt`, `sitemap.xml`, `site.webmanifest`, `llms.txt`
+- [x] `<head>` refeito: `lang="pt-BR"`, canonical, robots, geo, title/description com keyword
+- [x] JSON-LD: Organization + ProfessionalService (6 serviços) + WebSite + WebPage + FAQPage
+- [x] `og-image.png` 1200×630 real (a meta tag apontava para um arquivo 404)
+- [x] Splash deixou de bloquear a renderização — conteúdo no DOM em 1,5s (era 5,6s)
+- [x] Code splitting de `/brandbook` e `/validar` — bundle da home 1.860 kB → 830 kB
+- [x] Imagens do imgur (davam 403) trazidas para o domínio em WebP: 3,78 MB → 207 KB
+- [x] `useSEO` por rota + `noindex` em `/brandbook`, `/validar` e 404
+- [x] 404 refeito em pt-BR dentro da marca
+- [x] Contraste WCAG AA corrigido em `TrustedBrands`
+- [x] E-mail unificado e link de WhatsApp deixou de ser link morto (`src/lib/contact.ts`)
+
+**Feito (rodada 2 — dados legais + analytics)**
+- [x] WhatsApp `+55 16 98216-6580` ligado (`src/lib/contact.ts`)
+- [x] GA4 `G-TQLF820EBM` com Consent Mode v2 — 0 cookies antes do aceite (LGPD)
+- [x] Banner de consentimento com "Recusar" de mesmo peso que "Aceitar"
+- [x] `/privacidade` e `/termos` com razão social, CNPJ e endereço reais da Receita
+- [x] JSON-LD com `legalName`, `taxID`, `telephone` e endereço completo
+- [x] Rodapé com `<address>` (NAP completo) e coluna Legal com links reais
+- [x] Eventos de conversão: `contact_form_submit` e `whatsapp_click`
+
+**Feito (rodada 3 — dado de entidade centralizado)**
+- [x] Razão social/CNPJ/endereço agora existem em UM arquivo (`src/lib/contact.ts`)
+- [x] JSON-LD gerado em build a partir dele (plugin `mazariSeoInject` no vite.config.ts)
+- [x] Build QUEBRA se o marcador de JSON-LD sumir do index.html (testado)
+- [x] Campo sem registro público não é declarado no schema (`TRADE_NAME`/`sameAs` vazios) (testado)
+
+**Pendente**
+- [ ] 🟡 **Atualização de CNPJ em andamento** — quando sair, editar só o bloco "Entidade legal"
+      de `src/lib/contact.ts`: `LEGAL_NAME`, `TRADE_NAME` (= "Mazari Corp"), `CNPJ`, `ADDRESS`,
+      `ENTITY_VERIFIED_AT`. Rodapé, /privacidade, /termos e JSON-LD acompanham sozinhos.
+- [ ] ⏸️ **Formulário de contato não envia nada** — `Contact.tsx` só mostra toast e limpa o
+      form. Humberto ciente; ajuste em breve.
+- [ ] Perfis sociais para o `sameAs` do schema (LinkedIn/Instagram/GitHub)
+- [ ] Google Business Profile (endereço já está pronto)
+- [ ] Revisão de advogado nas páginas jurídicas
+- [ ] Alinhar "10+ anos" do copy com o CNPJ de 2022 (por isso `foundingDate` ficou fora do schema)
+- [ ] CNAE 73.19-0/02 "Promoção de vendas" não cobre desenvolvimento de software — ver contabilidade
+
+**Pendente — estratégico**
+- [ ] Quebrar a single-page em páginas por serviço (`/blockchain`, `/pentest`, `/cases/*`).
+      Uma página só ranqueia para um tema. Detalhes em SEO.md §5.

@@ -130,6 +130,7 @@ Hospedado no Replit. Push para `master` faz deploy automático.
 
 ## Docs complementares
 
+- [SEO.md](./artifacts/mazari-corp/SEO.md) — auditoria, correções, checklist do Search Console e estratégia de conteúdo
 - [CONTEXT.md](./CONTEXT.md) — regras de negócio, brandbook, padrões de código
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — fluxo de dados, estrutura de pastas, decisões
 - [TODO.md](./TODO.md) — pendências e roadmap

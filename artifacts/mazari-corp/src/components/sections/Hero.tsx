@@ -11,7 +11,11 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-[100vh] flex flex-col overflow-hidden">
+    <section
+      id="inicio"
+      aria-label="Mazari Corp — engenharia, blockchain e inteligência artificial"
+      className="relative min-h-[100vh] flex flex-col overflow-hidden"
+    >
       {/* Background: grade 3D com nós pulsantes */}
       <NetworkGrid3D />
 

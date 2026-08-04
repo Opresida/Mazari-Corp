@@ -30,9 +30,10 @@ export function LoadingScreen({ isVisible, onExitComplete }: LoadingScreenProps)
 
   useEffect(() => {
     if (!isVisible) return
-    // Anima progresso em ~4.5s
+    // Anima progresso em ~1.9s — o conteúdo real já está montado atrás do splash,
+    // então segurar a tela por mais tempo só custaria LCP.
     const controls = animate(progress, 100, {
-      duration: 4.5,
+      duration: 1.9,
       ease: [0.2, 0.6, 0.3, 1],
       onUpdate: (v) => {
         const step = Math.min(BOOT_STEPS.length - 1, Math.floor((v / 100) * BOOT_STEPS.length))
@@ -52,6 +53,7 @@ export function LoadingScreen({ isVisible, onExitComplete }: LoadingScreenProps)
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
           className="fixed inset-0 z-[9999] bg-background flex items-center justify-center px-5"
+          aria-hidden="true"
           style={{
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           }}

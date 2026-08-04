@@ -3,6 +3,14 @@ import { ClassValue, clsx } from "clsx";
 import * as Color from "color-bits";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import {
+  CONTACT_EMAIL,
+  PHONE_DISPLAY,
+  WHATSAPP_URL,
+  LEGAL_NAME,
+  CNPJ,
+  ADDRESS_LINE,
+} from "@/lib/contact";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -795,17 +803,26 @@ const mazariFooterLinks = [
     ],
   },
   {
+    title: "Serviços",
+    links: [
+      { id: 4, title: "Blockchain & Web3", url: "#blockchain" },
+      { id: 5, title: "Pentest & Segurança", url: "#pentest" },
+      { id: 6, title: "Pesquisa & Desenvolvimento", url: "#pdi" },
+    ],
+  },
+  {
     title: "Contato",
     links: [
-      { id: 4, title: "corporativo@mazaricorp.com", url: "mailto:corporativo@mazaricorp.com" },
-      { id: 5, title: "www.mazaricorp.com", url: "https://www.mazaricorp.com" },
+      { id: 7, title: CONTACT_EMAIL, url: `mailto:${CONTACT_EMAIL}` },
+      { id: 8, title: PHONE_DISPLAY, url: WHATSAPP_URL },
+      { id: 9, title: "Fale com a Mazari", url: "#contato" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { id: 6, title: "Termos de Uso", url: "#" },
-      { id: 7, title: "Política de Privacidade", url: "#" },
+      { id: 10, title: "Política de Privacidade", url: "/privacidade" },
+      { id: 11, title: "Termos de Uso", url: "/termos" },
     ],
   },
 ];
@@ -835,8 +852,15 @@ export const FlickeringFooter = () => {
             <Icons.hipaaDark className="size-12" />
             <Icons.gdprDark className="size-12" />
           </div>
+          {/* NAP completo: mesmo dado do JSON-LD e do Google Business Profile */}
+          <address className="not-italic flex flex-col gap-1 text-xs text-muted-foreground">
+            <span>{ADDRESS_LINE}</span>
+            <span>
+              {LEGAL_NAME} · CNPJ {CNPJ}
+            </span>
+          </address>
           <p className="text-xs text-muted-foreground">
-            © 2025 Mazari Corp. Todos os direitos reservados.
+            © {new Date().getFullYear()} Mazari Corp. Todos os direitos reservados.
           </p>
         </div>
         <div className="pt-5 md:w-1/2">

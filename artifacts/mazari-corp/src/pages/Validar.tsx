@@ -3,6 +3,7 @@ import { Link } from 'wouter'
 import { PDFDocument } from 'pdf-lib'
 import { ArrowLeft, Upload, ShieldCheck, ShieldAlert, Loader2, Hash, FileCheck2 } from 'lucide-react'
 import { sha256Hex, parseMarker, type MazariMarker } from '@/lib/doc-hash'
+import { useSEO } from '@/lib/seo'
 
 type Mode = 'documento' | 'hash'
 type Verdict = 'idle' | 'match' | 'stamped' | 'nomatch' | 'nohash' | 'error'
@@ -18,6 +19,14 @@ function normalizeHash(raw: string): string {
 }
 
 export default function Validar() {
+  useSEO({
+    title: 'Validar documento — Mazari Corp',
+    description:
+      'Verifique a autenticidade de um documento emitido pela Mazari Corp comparando o hash SHA-256 do arquivo com o registro oficial.',
+    path: '/validar',
+    noindex: true,
+  })
+
   const fileRef = useRef<HTMLInputElement>(null)
   const [mode, setMode] = useState<Mode>('documento')
   const [expected, setExpected] = useState('')

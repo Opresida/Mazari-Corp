@@ -40,7 +40,11 @@ export function VapourStatement() {
   const { fontSize, containerH } = FONT_CONFIG[bp];
 
   return (
-    <section className="relative overflow-hidden bg-background py-20 md:py-28">
+    <section
+      id="manifesto"
+      aria-label="Manifesto Mazari Corp"
+      className="relative overflow-hidden bg-background py-20 md:py-28"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-primary/5 blur-[120px]" />
       </div>

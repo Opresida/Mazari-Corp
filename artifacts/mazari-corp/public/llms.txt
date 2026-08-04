@@ -1,0 +1,41 @@
+# Mazari Corp
+
+> Operação de engenharia digital, blockchain e inteligência artificial. A Mazari Corp projeta, desenvolve e escala produtos digitais e soluções Web3 para empresas no Brasil e no mundo — 10+ anos de operação, 30+ projetos entregues, presença em 5 continentes. Sede em Manaus, Amazonas, Brasil; atendimento global.
+
+## O que a Mazari Corp faz
+
+- [Desenvolvimento de plataformas e aplicativos](https://mazaricorp.com/#desenvolvimento): plataformas web, aplicativos e sistemas corporativos sob medida, do design de produto à arquitetura de escala.
+- [Sistemas e Inteligência Artificial](https://mazaricorp.com/#desenvolvimento): automação de processos, agentes e modelos de IA integrados à operação do negócio.
+- [Blockchain e Web3](https://mazaricorp.com/#blockchain): smart contracts em Solidity, tokenização de ativos, protocolos DeFi e advisory técnico.
+- [NORTOKEN](https://nortoken.mazaricorp.com): launchpad de tokenização da Mazari, com Trust Score e liquidação em USDC.
+- [Pentest e segurança ofensiva](https://mazaricorp.com/#pentest): teste de intrusão externo, mapeamento de superfície de ataque e relatório executivo com plano de correção priorizado.
+- [Pesquisa e Desenvolvimento](https://mazaricorp.com/#pdi): P&D aplicado a produtos de tecnologia e inovação corporativa.
+- [Consultoria e estruturação offshore](https://mazaricorp.com/#consultoria): estruturação societária internacional em 6 jurisdições.
+
+## Como a Mazari trabalha
+
+- [Processo em 4 etapas](https://mazaricorp.com/#processo): Imersão (entender o negócio e o problema) → Arquitetura (desenho técnico e escopo) → Construção (desenvolvimento em ciclos) → Escala (operação, monitoramento e evolução).
+- [Stack técnico](https://mazaricorp.com/#stack): React, Next.js, TypeScript, Python, Solidity, AWS, entre outros.
+
+## Prova
+
+- [Cases](https://mazaricorp.com/#cases): IDASAM, i2TA, Protocolo Zeus e GLOMAM.
+- [Depoimentos de clientes](https://mazaricorp.com/#depoimentos)
+
+## Contato
+
+- [Falar com a Mazari Corp](https://mazaricorp.com/#contato)
+- E-mail: corporativo@mazaricorp.com
+- WhatsApp: +55 16 98216-6580
+- Endereço: Avenida Professor Cláudio Portilho, 365, Bloco A, Sala 209, Japiim, Manaus/AM, CEP 69077-738, Brasil
+
+## Legal
+
+- [Política de Privacidade](https://mazaricorp.com/privacidade): tratamento de dados pessoais conforme a LGPD (Lei 13.709/2018).
+- [Termos de Uso](https://mazaricorp.com/termos): condições de uso do site, propriedade intelectual e foro.
+- Entidade legal: 45.708.417 NAYARA DAYANE LIRA DOS SANTOS — CNPJ 45.708.417/0001-41.
+
+## Observações
+
+- Idioma principal do site: português do Brasil (pt-BR).
+- `/brandbook` e `/validar` são páginas utilitárias internas (manual de marca e verificação de autenticidade de documentos por hash SHA-256). Não são conteúdo institucional e estão marcadas como noindex.

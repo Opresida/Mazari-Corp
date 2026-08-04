@@ -6,6 +6,7 @@ import { User, Phone, Mail, Briefcase, Sparkles, ShieldCheck, Clock } from 'luci
 import { DecoratedHeading } from '../ui/DecoratedHeading'
 import { MzButton } from '../ui/MzButton'
 import { IntegrationsList } from '../ui/IntegrationsList'
+import { trackEvent } from '@/lib/analytics'
 
 const serviceOptions = [
   'Desenvolvimento Web / App',
@@ -24,6 +25,8 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    // ⚠️ Mede a INTENÇÃO de contato. O formulário ainda não tem backend — ver TODO.md.
+    trackEvent('contact_form_submit', { form_location: 'secao_contato' })
     setTimeout(() => {
       setIsSubmitting(false)
       toast({

@@ -1,0 +1,42 @@
+# ═══════════════════════════════════════════════════
+#  MAZARI CORP — https://mazaricorp.com
+#  Engenharia · Blockchain · Inteligência Artificial
+# ═══════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+
+# Páginas utilitárias (não são conteúdo de busca)
+Disallow: /validar
+Disallow: /brandbook
+
+# Assets com hash — sem valor de indexação
+Disallow: /assets/
+
+# ── Crawlers de IA: permitidos (visibilidade em respostas de LLM) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# ── Scrapers agressivos de SEO (economia de banda) ──
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+Sitemap: https://mazaricorp.com/sitemap.xml

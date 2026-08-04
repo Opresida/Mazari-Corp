@@ -20,6 +20,7 @@ import {
   ChevronRight,
 } from 'lucide-react'
 import { GradientSplitter } from '@/components/ui/GradientSplitter'
+import { useSEO } from '@/lib/seo'
 import { TabFoundation } from '@/components/brandbook/TabFoundation'
 import { TabLogo } from '@/components/brandbook/TabLogo'
 import { TabColor } from '@/components/brandbook/TabColor'
@@ -69,6 +70,14 @@ function getInitialTab(): string {
 }
 
 export default function Brandbook() {
+  useSEO({
+    title: 'Brandbook — Mazari Corp',
+    description:
+      'Manual de marca da Mazari Corp: logo, cores, tipografia, tom de voz, componentes e aplicações.',
+    path: '/brandbook',
+    noindex: true,
+  })
+
   const [activeTab, setActiveTab] = useState<string>(getInitialTab)
 
   useEffect(() => {
