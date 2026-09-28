@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#080908" />
+    <script>
+      // Rotas estáticas servidas de public/: sem a barra final o rewrite do SPA
+      // captura o caminho e o roteador mostraria 404. Devolve pra barra certa.
+      if (location.pathname === "/danielqueiroz")
+        location.replace("/danielqueiroz/" + location.search + location.hash);
+    </script>
 
     <!-- ═══ Core SEO ═══ -->
     <title>Mazari Corp — Desenvolvimento de Software, Blockchain e IA</title>
