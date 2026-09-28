@@ -1,0 +1,15 @@
+[submodule "artifacts/nortoken-contracts/lib/forge-std"]
+	path = artifacts/nortoken-contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "artifacts/nortoken-contracts/lib/openzeppelin-contracts"]
+	path = artifacts/nortoken-contracts/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "artifacts/nortoken-contracts/lib/v4-core"]
+	path = artifacts/nortoken-contracts/lib/v4-core
+	url = https://github.com/Uniswap/v4-core
+[submodule "artifacts/nortoken-contracts/lib/v4-periphery"]
+	path = artifacts/nortoken-contracts/lib/v4-periphery
+	url = https://github.com/Uniswap/v4-periphery
+[submodule "artifacts/nortoken-contracts/lib/permit2"]
+	path = artifacts/nortoken-contracts/lib/permit2
+	url = https://github.com/Uniswap/permit2

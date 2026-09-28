@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Plano Editorial Daniel Queiroz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&display=swap">
+</head>
+<body>
+<style>
+  :root{ color-scheme: dark; }
+  body{
+    background:#080908; color:#e9ede6;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    margin:0; padding-block:0 60px; padding-inline:16px;
+    line-height:1.6; font-size:14px;
+  }
+  .wrap{max-width:1020px;margin:0 auto}
+  .bar{height:5px;background:#D2FF28;margin:0 -16px}
+  header{padding:42px 0 10px}
+  .wm{display:flex;align-items:baseline;gap:4px}
+  .wm b{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:26px;letter-spacing:-.02em;color:#fff}
+  .wm i{width:8px;height:8px;border-radius:50%;background:#D2FF28;display:inline-block;box-shadow:0 0 12px rgba(210,255,40,.6)}
+  .wm small{font-size:8px;letter-spacing:.24em;color:#8a9186;margin-left:10px;text-transform:uppercase}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,6vw,46px);line-height:1.12;color:#fff;margin:26px 0 10px;text-wrap:balance}
+  h1 .gold{color:#d3a54c;font-style:italic}
+  .sub{color:#cfd4cb;max-width:62ch;margin:0 0 8px}
+  .client{display:flex;align-items:center;gap:13px;margin:22px 0 6px;flex-wrap:wrap}
+  .chip{background:#161d34;border:1px solid rgba(210,255,40,.3);border-radius:10px;padding:10px 15px;font-family:'Fraunces',serif;font-size:18px;color:#fff}
+  .client .who{font-size:13px;color:#cfd4cb}
+  .client .who b{color:#fff}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:26px 0 8px}
+  .st{border:1px solid rgba(210,255,40,.16);border-radius:10px;background:#121412;padding:14px 16px}
+  .st .v{font-family:'Fraunces',serif;font-size:30px;color:#fff;line-height:1}
+  .st .v small{font-size:14px;color:#8a9186}
+  .st .k{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a9186;margin-top:7px}
+  .note{border:1px solid rgba(255,255,255,.1);border-left:3px solid #D2FF28;border-radius:0 8px 8px 0;background:#121412;padding:13px 16px;font-size:12px;color:#cfd4cb;margin:20px 0 6px}
+  .note b{color:#D2FF28}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 4px}
+  .pill{font-size:9.5px;letter-spacing:.08em;border-radius:20px;padding:4px 12px;border:1px solid;white-space:nowrap}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:24px;color:#fff;margin:46px 0 2px}
+  .wsub{color:#8a9186;font-size:11px;margin:0 0 14px}
+  .sec-line{height:1px;background:rgba(255,255,255,.08);margin:10px 0 18px;position:relative}
+  .sec-line::before{content:'';position:absolute;left:0;top:0;width:64px;height:1px;background:#D2FF28}
+  .days{display:flex;flex-direction:column;gap:12px}
+  .day{border:1px solid rgba(255,255,255,.09);border-radius:12px;background:#121412;padding:16px}
+  .day.hl{border-color:rgba(210,255,40,.35);background:#141710}
+  .dhead{display:grid;grid-template-columns:76px 1fr;gap:16px}
+  .date{text-align:center;border-right:1px solid rgba(255,255,255,.08);padding-right:12px}
+  .date .d{font-family:'Fraunces',serif;font-size:26px;color:#fff;line-height:1}
+  .date .m{font-size:8.5px;letter-spacing:.2em;color:#8a9186;text-transform:uppercase;margin-top:4px}
+  .date .w{font-size:9px;color:#5a6157;text-transform:uppercase;margin-top:2px}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:7px}
+  .fmt{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-radius:5px;padding:3px 9px}
+  .f-car{background:rgba(210,255,40,.14);color:#D2FF28;border:1px solid rgba(210,255,40,.35)}
+  .f-est{background:rgba(255,255,255,.08);color:#e9ede6;border:1px solid rgba(255,255,255,.2)}
+  .f-edi{background:rgba(211,165,76,.15);color:#d3a54c;border:1px solid rgba(211,165,76,.4)}
+  .f-mon{background:rgba(79,163,227,.15);color:#7EC4F5;border:1px solid rgba(79,163,227,.4)}
+  .tag-ar{background:#D2FF28;color:#080908;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;border-radius:5px;padding:3px 9px;font-weight:700}
+  .day h3{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:#fff;margin:0 0 5px;line-height:1.3}
+  .hook{font-size:12px;color:#cfd4cb;margin:0}
+  .cta{font-size:10px;color:#8a9186;margin-top:7px}
+  .cta b{color:#D2FF28;font-weight:700}
+  .cta a{color:#D2FF28}
+  .strip{display:flex;gap:8px;overflow-x:auto;margin-top:13px;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(210,255,40,.4) transparent;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .strip img{height:clamp(150px,24vw,260px);aspect-ratio:4/5;max-width:100%;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.12);cursor:pointer;flex:0 0 auto;scroll-snap-align:start}
+  .strip img:first-child{border-color:rgba(210,255,40,.45)}
+  .prod{font-size:10.5px;color:#d3a54c;margin-top:12px;border:1px dashed rgba(211,165,76,.4);border-radius:8px;padding:9px 12px;display:inline-block}
+  #lb{position:fixed;inset:0;background:rgba(3,4,3,.94);display:none;align-items:center;justify-content:center;z-index:50;cursor:zoom-out;padding:20px}
+  #lb img{max-height:92vh;max-width:94vw;border-radius:10px}
+  footer{margin-top:56px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#5a6157;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  @media (min-width:1400px){
+    body{font-size:15px}
+    .wrap{max-width:1160px}
+    .day h3{font-size:18px}
+  }
+  @media (max-width:720px){
+    .stats{grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:9px}
+    .st{padding:11px 12px}
+    .st .v{font-size:24px}
+    h2{font-size:21px}
+  }
+  @media (max-width:520px){
+    body{font-size:13px}
+    .dhead{grid-template-columns:52px 1fr;gap:12px}
+    .date{padding-right:9px}
+    .date .d{font-size:19px}
+    .day{padding:13px}
+    .day h3{font-size:15px}
+    .hook{font-size:11.5px}
+    .meta{gap:5px}
+    .fmt,.pill,.tag-ar{font-size:8px;padding:2px 7px}
+    .client .who{font-size:12px}
+    .chip{font-size:15px;padding:8px 12px}
+  }
+  @media (max-width:380px){
+    .dhead{grid-template-columns:1fr}
+    .date{display:flex;gap:8px;align-items:baseline;text-align:left;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:0 0 6px;margin-bottom:8px}
+    .date .m,.date .w{margin-top:0}
+  }
+</style>
+
+<div class="bar"></div>
+<div class="wrap">
+<header>
+  <div class="wm"><b>MAZARI</b><i></i><small>Engenharia Digital · Tráfego · Conteúdo</small></div>
+  <h1>A temporada de <span class="gold">outubro</span> do seu recomeço.</h1>
+  <p class="sub">Este é o plano editorial completo do <b>@daniel.queiroz.oficial</b> — dia a dia, do dia 29 de setembro ao dia 8 de novembro. E não é só o plano: <b>cada card de cada publicação já está pronto e visível aqui</b>. Toque em qualquer imagem para ampliar.</p>
+  <div class="client">
+    <div class="chip">DQ</div>
+    <div class="who"><b>Daniel Queiroz</b> · Marketing de Relacionamento · ABC Paulista<br>26.489 seguidores no ponto de partida</div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="st"><div class="v">38</div><div class="k">Publicações no ciclo</div></div>
+  <div class="st"><div class="v">18</div><div class="k">Carrosséis</div></div>
+  <div class="st"><div class="v">15</div><div class="k">Estáticos autorais</div></div>
+  <div class="st"><div class="v">5</div><div class="k">Ensaios editoriais</div></div>
+  <div class="st"><div class="v">129</div><div class="k">Artes finalizadas</div></div>
+</div>
+
+<div class="note"><b>Como ler esta página:</b> cada dia mostra a peça completa — deslize a fileira de imagens para ver todos os cards do carrossel, exatamente como sairão no Instagram. Os 5 ensaios editoriais de domingo entram em produção fotográfica esta semana e aparecerão aqui assim que ficarem prontos.</div>
+
+<div class="legend">
+  <span class="pill" style="border-color:rgba(211,165,76,.5);color:#d3a54c">Dor &amp; Espelho</span>
+  <span class="pill" style="border-color:rgba(255,255,255,.3);color:#e9ede6">História &amp; Autoridade</span>
+  <span class="pill" style="border-color:rgba(210,255,40,.5);color:#D2FF28">Educação de Modelo</span>
+  <span class="pill" style="border-color:rgba(79,163,227,.5);color:#7EC4F5">Comunidade &amp; Prova</span>
+  <span class="pill" style="border-color:rgba(174,240,0,.6);color:#aef000">Convite</span>
+</div>
+
+<div id="grade"></div>
+
+<footer>
+  <span>MAZARI CORP · mazaricorp.com</span>
+  <span>Plano vivo — atualizado conforme os dados do mês</span>
+</footer>
+</div>
+<div id="lb"><img alt=""></div>
+
+<script>
+const P = {
+  dor:['Dor & Espelho','#d3a54c'], hist:['História & Autoridade','#e9ede6'],
+  edu:['Educação de Modelo','#D2FF28'], com:['Comunidade & Prova','#7EC4F5'], conv:['Convite','#aef000']
+};
+const F = { car:['CARROSSEL','f-car'], est:['ESTÁTICO','f-est'], edi:['EDITORIAL','f-edi'], mon:['JÁ PUBLICADO','f-mon'] };
+// g: [pasta, qtd] p/ carrossel · ['est', id] p/ estático · null p/ editorial
+const weeks = [
+ { t:'Semana 1 — A estreia', s:'29 set → 05 out · O recomeço vai ao ar.', days:[
+  ['29','SET','SEG','mon','edu','Vendendo seu tempo ou lucrando com ele?','Primeira publicação da temporada — já no ar, colhendo comentários TEMPO.','<a href="https://www.instagram.com/p/Dd1rUzXjpLe/" target="_blank" rel="noopener">ver publicação no Instagram ↗</a>',['c01',7],1],
+  ['01','OUT','QUA','car','hist','Eu faturei R$ 4 milhões. E parei.','A história que ninguém conta: o topo, a pausa de 3 anos e o recomeço.','Salvar',['c02',8]],
+  ['03','OUT','SEX','car','dor','Como você vive hoje?','O espelho que dói e o convite pra conhecer o projeto por dentro.','Comentar VIDA',['c03',7]],
+  ['04','OUT','SÁB','est','hist','“Recomeçar não é voltar atrás. É voltar diferente.”','Frase-assinatura do Daniel para fixar o tema da temporada.','Salvar',['est','e01']],
+  ['05','OUT','DOM','edi','hist','Ensaio: “Disciplina é a forma mais alta de amor-próprio.”','3 fotos editoriais, frase que se completa ao deslizar.','Presença',null]
+ ]},
+ { t:'Semana 2 — Derrubando objeções', s:'06 → 12 out · A pergunta que todos fazem, respondida de frente.', days:[
+  ['06','OUT','SEG','car','edu','Isso é pirâmide?','A objeção nº 1 respondida com o teste do bolso. Feito pra ser compartilhado.','Salvar + Enviar',['c04',7]],
+  ['07','OUT','TER','est','edu','“Seu salário é o preço do seu tempo.”','A diferença entre preço e valor, em uma frase.','Compartilhar',['est','e02']],
+  ['08','OUT','QUA','car','dor','5 sinais de zona de conforto cara','O emprego confortável que cobra caro — com o Daniel se incluindo na dor.','Comentar o número',['c05',6]],
+  ['09','OUT','QUI','est','dor','“Zona de conforto também cobra aluguel.”','Reforço do carrossel da véspera, formato rápido.','Salvar',['est','e03']],
+  ['10','OUT','SEX','car','hist','O que 3 anos de silêncio me ensinaram','4 lições da pausa — o conteúdo mais íntimo da semana.','Salvar',['c06',7]],
+  ['11','OUT','SÁB','est','conv','“Terça-feira também é dia de construir liberdade.”','Incentivo de fim de semana com energia de começo.','Marcar alguém',['est','e04']],
+  ['12','OUT','DOM','edi','com','Ensaio: “Ninguém te aplaude às 5h da manhã.”','O processo por trás do palco, em 3 fotos.','Presença',null]
+ ]},
+ { t:'Semana 3 — Método na mesa', s:'13 → 19 out · Do medo ao cronograma: como se constrói de verdade.', days:[
+  ['13','OUT','SEG','car','edu','Os 4 medos que travam qualquer recomeço','Cada medo com seu antídoto. Conteúdo de salvamento recorde.','Salvar',['c07',7]],
+  ['14','OUT','TER','est','edu','“Você não precisa de mais 24 horas.”','Modelo importa mais que agenda.','Salvar',['est','e05']],
+  ['15','OUT','QUA','car','com','Quando UM ganha, ninguém perde','A matemática da comunidade contra a matemática da disputa.','Comentar',['c08',6]],
+  ['16','OUT','QUI','est','com','“Quem constrói junto chega inteiro.”','Reforço de comunidade.','Marcar parceiro',['est','e06']],
+  ['17','OUT','SEX','car','edu','Renda extra com 1h por dia (cronograma honesto)','20+20+20: conexão, conteúdo, aprendizado. O método do dia 1.','Salvar',['c09',7]],
+  ['18','OUT','SÁB','est','conv','“O plano B só é plano B até te sustentar.”','A semente da possibilidade.','Salvar',['est','e07']],
+  ['19','OUT','DOM','edi','edu','Ensaio: “O mercado paga caro por quem resolve.”','Autoridade em 3 quadros.','Presença',null]
+ ]},
+ { t:'Semana 4 — A conta e o convite', s:'20 → 26 out · A matemática que incomoda e a porta que se abre.', days:[
+  ['20','OUT','SEG','car','hist','O que a engenharia me ensinou','Alicerce, cálculo e cronograma — a ponte entre as duas vidas do Daniel.','Salvar',['c10',6]],
+  ['21','OUT','TER','est','edu','“O não sei vender de hoje…”','…é o “ainda bem que aprendi” de amanhã.','Compartilhar',['est','e08']],
+  ['22','OUT','QUA','car','dor','A matemática do fim do mês','480 horas acordado. Quantas sobram SUAS? A conta que vira combustível.','Comentar horas',['c11',7]],
+  ['23','OUT','QUI','est','com','“Palco é consequência. Processo é causa.”','Prova sem deslumbre.','Salvar',['est','e09']],
+  ['24','OUT','SEX','car','conv','Como funciona o projeto por dentro','Produto, estrutura e papel de cada um — o gancho da apresentação.','Comentar PROJETO',['c12',7]],
+  ['25','OUT','SÁB','est','conv','“Enquanto uns pedem desconto no sonho…”','Provocação de sábado.','Compartilhar',['est','e10']],
+  ['26','OUT','DOM','edi','hist','Ensaio: “Eu já fui o mais novo da sala.”','Da foto antiga da engenharia ao palco — a jornada em 3 quadros.','Presença',null]
+ ]},
+ { t:'Semana 5 — Verdade e vulnerabilidade', s:'27 out → 02 nov · O conteúdo mais humano do ciclo.', days:[
+  ['27','OUT','SEG','car','edu','Produto primeiro: o teste dos 3 sim','O filtro que protege de cilada — educação que gera confiança.','Salvar + Enviar',['c13',6]],
+  ['28','OUT','TER','est','edu','“Dinheiro não muda pessoas. Revela prioridades.”','Reflexão de meio de semana.','Salvar',['est','e11']],
+  ['29','OUT','QUA','car','dor','O dia em que eu quase desisti','A crise que veio COM o sucesso. O post mais corajoso do mês.','Comentar EU',['c14',7]],
+  ['30','OUT','QUI','est','dor','“Se o mês sobra e o salário acaba…”','…a conta é de modelo, não de matemática.','Salvar',['est','e12']],
+  ['31','OUT','SEX','car','com','Conquista ou marketing?','O que as fotos de palco não mostram — honestidade que diferencia.','Salvar',['c15',6]],
+  ['01','NOV','SÁB','est','hist','“Sua família não precisa de um herói cansado.”','A frase que mudou tudo pro Daniel.','Marcar o motivo',['est','e13']],
+  ['02','NOV','DOM','edi','conv','Ensaio: “Liberdade é escolher a quem você serve.”','Família, trabalho e propósito em 3 quadros.','Presença',null]
+ ]},
+ { t:'Semana 6 — O fechamento que abre portas', s:'03 → 08 nov · Método, ponte e o filtro final.', days:[
+  ['03','NOV','SEG','car','edu','Vender não é dom. É método.','Perguntar, conectar, acompanhar — a quebra do “não sei vender”.','Salvar',['c16',7]],
+  ['04','NOV','TER','est','dor','“Um sonho sem plano é só boa intenção.”','Chamada pra ação de quem adia.','Salvar',['est','e14']],
+  ['05','NOV','QUA','car','hist','Da prancheta ao palco','As pontes que ninguém viu o Daniel construir — e as que ele constrói agora.','Comentar',['c17',6]],
+  ['06','NOV','QUI','est','edu','“Trabalhe pelo que você quer.”','A punchline mais dura do lote — de propósito.','Compartilhar',['est','e15']],
+  ['07','NOV','SEX','car','conv','Pra quem é (e pra quem NÃO é)','O filtro aberto que valoriza o convite. Fecha o ciclo abrindo conversas.','Comentar EU',['c18',7]]
+ ]}
+];
+function gallery(g){
+  if (!g) return '<div class="prod">📸 Ensaio fotográfico em produção — as 3 fotos entram aqui nesta semana</div>';
+  if (g[0] === 'est') return `<div class="strip"><img loading="lazy" src="est/${g[1]}.jpg" alt=""></div>`;
+  const [pc, n] = g;
+  let s = '<div class="strip">';
+  for (let i = 1; i <= n; i++) s += `<img loading="lazy" src="${pc}/${String(i).padStart(2,'0')}.jpg" alt="">`;
+  return s + '</div>';
+}
+document.getElementById('grade').innerHTML = weeks.map(w => `
+  <h2>${w.t}</h2><p class="wsub">${w.s}</p><div class="sec-line"></div>
+  <div class="days">${w.days.map(d => {
+    const [dd, mm, wd, fmt, pil, title, hook, cta, g, hl] = d;
+    const [fName, fCls] = F[fmt]; const [pName, pColor] = P[pil];
+    const fmtTag = fmt === 'mon' ? `<span class="tag-ar">● NO AR</span>` : `<span class="fmt ${fCls}">${fName}</span>`;
+    return `<div class="day${hl ? ' hl' : ''}"><div class="dhead">
+      <div class="date"><div class="d">${dd}</div><div class="m">${mm}</div><div class="w">${wd}</div></div>
+      <div>
+        <div class="meta">${fmtTag}<span class="pill" style="border-color:${pColor}55;color:${pColor}">${pName}</span></div>
+        <h3>${title}</h3><p class="hook">${hook}</p>
+        <div class="cta">Chamada: <b>${cta}</b></div>
+      </div></div>
+      ${gallery(g)}
+    </div>`;
+  }).join('')}
+`).join('');
+const lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+document.addEventListener('click', e => {
+  if (e.target.matches('.strip img')) { lbImg.src = e.target.src; lb.style.display = 'flex'; }
+  else if (e.target === lb || e.target === lbImg) { lb.style.display = 'none'; }
+});
+</script>
+
+</body></html>
