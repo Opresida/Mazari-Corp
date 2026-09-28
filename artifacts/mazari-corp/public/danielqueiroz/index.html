@@ -17,8 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Plano Editorial · Daniel Queiroz">
 <meta name="twitter:description" content="A temporada de outubro do seu recomeço — 38 publicações com todas as artes prontas, dia a dia.">
-<meta name="twitter:image" content="https://mazaricorp.com/danielqueiroz/og.jpg">
-<title>Plano Editorial Daniel Queiroz</title>
+<meta name="twitter:image" content="https://mazaricorp.com/danielqueiroz/og.jpg"><title>Plano Editorial Daniel Queiroz</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&display=swap">
 </head>
 <body>
@@ -83,6 +82,41 @@
   .prod{font-size:10.5px;color:#d3a54c;margin-top:12px;border:1px dashed rgba(211,165,76,.4);border-radius:8px;padding:9px 12px;display:inline-block}
   #lb{position:fixed;inset:0;background:rgba(3,4,3,.94);display:none;align-items:center;justify-content:center;z-index:50;cursor:zoom-out;padding:20px}
   #lb img{max-height:92vh;max-width:94vw;border-radius:10px}
+  /* ── Boot loader MAZARI (porta do LoadingScreen.tsx do site) ── */
+  #boot{position:fixed;inset:0;z-index:9999;background:#080908;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .6s ease-in-out}
+  #boot.out{opacity:0;pointer-events:none}
+  #boot::before{content:'';position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:44px 44px}
+  #boot::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(210,255,40,.06) 0%,transparent 70%)}
+  .bt{position:relative;z-index:2;width:100%;max-width:430px;display:flex;flex-direction:column;gap:30px;animation:btIn .5s ease .1s backwards}
+  @keyframes btIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .bt-logo{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .bt-wm{display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:29px;letter-spacing:-.02em}
+  .bt-wm b{color:#fff;text-shadow:0 0 20px rgba(210,255,40,.4)}
+  .bt-wm em{color:#D2FF28;font-style:normal}
+  .bt-cur{display:inline-block;width:8px;height:24px;background:#D2FF28;margin-left:5px;box-shadow:0 0 10px rgba(210,255,40,.7);animation:btBlink 1s infinite}
+  @keyframes btBlink{0%,100%{opacity:.1}50%{opacity:1}}
+  .bt-tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+  .bt-term{border:1px solid rgba(255,255,255,.1);border-radius:12px;background:#101210;padding:15px;display:flex;flex-direction:column;gap:6px}
+  .bt-th{display:flex;justify-content:space-between;align-items:center;padding-bottom:9px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .bt-dots{display:flex;gap:6px}
+  .bt-dots i{width:8px;height:8px;border-radius:50%}
+  .bt-th span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+  .bt-ln{display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.8;opacity:.3;transition:opacity .3s}
+  .bt-ln .ic{min-width:12px;color:rgba(255,255,255,.2)}
+  .bt-ln .lb2{color:rgba(255,255,255,.3)}
+  .bt-ln .st{margin-left:auto;font-size:10px;color:rgba(255,255,255,.3)}
+  .bt-ln.on{opacity:1}.bt-ln.on .ic{color:#fbbf24}.bt-ln.on .lb2{color:rgba(255,255,255,.9)}
+  .bt-ln.ok{opacity:1}.bt-ln.ok .ic{color:#D2FF28}.bt-ln.ok .lb2{color:rgba(255,255,255,.8)}
+  .bt-pr{display:flex;flex-direction:column;gap:8px}
+  .bt-pl{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+  .bt-pl b{color:#D2FF28;font-weight:600}
+  .bt-track{height:3px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+  .bt-fill{height:100%;width:0%;background:#D2FF28;box-shadow:0 0 12px rgba(210,255,40,.7)}
+  .bt-sl{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding-top:4px}
+  .bt-sl .l{color:rgba(255,255,255,.4);display:flex;align-items:center;gap:8px}
+  .bt-sl .l i{width:6px;height:6px;border-radius:50%;background:#D2FF28;box-shadow:0 0 6px rgba(210,255,40,.7);animation:btBlink 1.6s infinite}
+  .bt-sl .v{color:rgba(210,255,40,.7)}
+  @media (prefers-reduced-motion:reduce){.bt{animation:none}.bt-cur,.bt-sl .l i{animation:none}}
   footer{margin-top:56px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#5a6157;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   @media (min-width:1400px){
     body{font-size:15px}
@@ -115,6 +149,30 @@
   }
 </style>
 
+<div id="boot" aria-hidden="true">
+  <div class="bt">
+    <div class="bt-logo">
+      <div class="bt-wm"><b>MAZARI</b><em>.</em><span class="bt-cur"></span></div>
+      <div class="bt-tag">Plano Editorial · Daniel Queiroz</div>
+    </div>
+    <div class="bt-term">
+      <div class="bt-th">
+        <div class="bt-dots"><i style="background:rgba(248,113,113,.5)"></i><i style="background:rgba(250,204,21,.5)"></i><i style="background:#D2FF28"></i></div>
+        <span>mazari.boot</span>
+      </div>
+      <div class="bt-ln" data-s="0"><span class="ic">·</span><span class="lb2">mazari.core</span><span class="st">idle</span></div>
+      <div class="bt-ln" data-s="1"><span class="ic">·</span><span class="lb2">engine.mount</span><span class="st">idle</span></div>
+      <div class="bt-ln" data-s="2"><span class="ic">·</span><span class="lb2">galeria.sync</span><span class="st">idle</span></div>
+      <div class="bt-ln" data-s="3"><span class="ic">·</span><span class="lb2">calendario.load</span><span class="st">idle</span></div>
+      <div class="bt-ln" data-s="4"><span class="ic">·</span><span class="lb2">interface.ready</span><span class="st">idle</span></div>
+    </div>
+    <div class="bt-pr">
+      <div class="bt-pl"><span>Loading</span><b><span id="btPct">0</span> %</b></div>
+      <div class="bt-track"><div class="bt-fill" id="btFill"></div></div>
+      <div class="bt-sl"><span class="l"><i></i><span id="btMsg">initializing runtime</span></span><span class="v">v1.0</span></div>
+    </div>
+  </div>
+</div>
 <div class="bar"></div>
 <div class="wrap">
 <header>
@@ -238,6 +296,31 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     </div>`;
   }).join('')}
 `).join('');
+// ── Boot loader (mesma coreografia do LoadingScreen do site: ~1.9s + fade .6s) ──
+(function () {
+  const boot = document.getElementById('boot');
+  const fill = document.getElementById('btFill'), pct = document.getElementById('btPct'), msg = document.getElementById('btMsg');
+  const lines = [...boot.querySelectorAll('.bt-ln')];
+  const DETAILS = ['initializing runtime', 'rendering pipeline', '136 artes ok', '6 semanas up', 'all systems nominal'];
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DUR = reduced ? 400 : 1900;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const t0 = performance.now();
+  function frame(now) {
+    const v = Math.min(100, ease(Math.min(1, (now - t0) / DUR)) * 100);
+    fill.style.width = v + '%'; pct.textContent = Math.round(v);
+    const step = Math.min(4, Math.floor((v / 100) * 5));
+    lines.forEach((ln, i) => {
+      const ic = ln.querySelector('.ic'), st = ln.querySelector('.st');
+      if (i < step || v >= 99) { ln.className = 'bt-ln ok'; ic.textContent = '✓'; st.textContent = 'ok'; }
+      else if (i === step) { ln.className = 'bt-ln on'; ic.textContent = '▸'; st.textContent = '...'; }
+    });
+    msg.textContent = v >= 99 ? 'SYSTEM READY' : DETAILS[step];
+    if (v < 100) requestAnimationFrame(frame);
+    else setTimeout(() => { boot.classList.add('out'); setTimeout(() => boot.remove(), 650); }, 250);
+  }
+  requestAnimationFrame(frame);
+})();
 const lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
 document.addEventListener('click', e => {
   if (e.target.matches('.strip img')) { lbImg.src = e.target.src; lb.style.display = 'flex'; }
