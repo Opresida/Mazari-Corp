@@ -104,7 +104,7 @@
   .bt-ln{display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.8;opacity:.3;transition:opacity .3s}
   .bt-ln .ic{min-width:12px;color:rgba(255,255,255,.2)}
   .bt-ln .lb2{color:rgba(255,255,255,.3)}
-  .bt-ln .st{margin-left:auto;font-size:10px;color:rgba(255,255,255,.3)}
+  .bt-ln .bst{margin-left:auto;font-size:10px;color:rgba(255,255,255,.3)}
   .bt-ln.on{opacity:1}.bt-ln.on .ic{color:#fbbf24}.bt-ln.on .lb2{color:rgba(255,255,255,.9)}
   .bt-ln.ok{opacity:1}.bt-ln.ok .ic{color:#D2FF28}.bt-ln.ok .lb2{color:rgba(255,255,255,.8)}
   .bt-pr{display:flex;flex-direction:column;gap:8px}
@@ -153,18 +153,18 @@
   <div class="bt">
     <div class="bt-logo">
       <div class="bt-wm"><b>MAZARI</b><em>.</em><span class="bt-cur"></span></div>
-      <div class="bt-tag">Plano Editorial · Daniel Queiroz</div>
+      <div class="bt-tag">Infrastructure · Blockchain · IA</div>
     </div>
     <div class="bt-term">
       <div class="bt-th">
         <div class="bt-dots"><i style="background:rgba(248,113,113,.5)"></i><i style="background:rgba(250,204,21,.5)"></i><i style="background:#D2FF28"></i></div>
         <span>mazari.boot</span>
       </div>
-      <div class="bt-ln" data-s="0"><span class="ic">·</span><span class="lb2">mazari.core</span><span class="st">idle</span></div>
-      <div class="bt-ln" data-s="1"><span class="ic">·</span><span class="lb2">engine.mount</span><span class="st">idle</span></div>
-      <div class="bt-ln" data-s="2"><span class="ic">·</span><span class="lb2">galeria.sync</span><span class="st">idle</span></div>
-      <div class="bt-ln" data-s="3"><span class="ic">·</span><span class="lb2">calendario.load</span><span class="st">idle</span></div>
-      <div class="bt-ln" data-s="4"><span class="ic">·</span><span class="lb2">interface.ready</span><span class="st">idle</span></div>
+      <div class="bt-ln" data-s="0"><span class="ic">·</span><span class="lb2">mazari.core</span><span class="bst">idle</span></div>
+      <div class="bt-ln" data-s="1"><span class="ic">·</span><span class="lb2">engine.mount</span><span class="bst">idle</span></div>
+      <div class="bt-ln" data-s="2"><span class="ic">·</span><span class="lb2">blockchain.sync</span><span class="bst">idle</span></div>
+      <div class="bt-ln" data-s="3"><span class="ic">·</span><span class="lb2">intelligence.load</span><span class="bst">idle</span></div>
+      <div class="bt-ln" data-s="4"><span class="ic">·</span><span class="lb2">interface.ready</span><span class="bst">idle</span></div>
     </div>
     <div class="bt-pr">
       <div class="bt-pl"><span>Loading</span><b><span id="btPct">0</span> %</b></div>
@@ -301,7 +301,7 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
   const boot = document.getElementById('boot');
   const fill = document.getElementById('btFill'), pct = document.getElementById('btPct'), msg = document.getElementById('btMsg');
   const lines = [...boot.querySelectorAll('.bt-ln')];
-  const DETAILS = ['initializing runtime', 'rendering pipeline', '136 artes ok', '6 semanas up', 'all systems nominal'];
+  const DETAILS = ['initializing runtime', 'rendering pipeline', 'rpc handshake ok', 'neural cores up', 'all systems nominal'];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const DUR = reduced ? 400 : 1900;
   const ease = t => 1 - Math.pow(1 - t, 3);
@@ -311,7 +311,7 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     fill.style.width = v + '%'; pct.textContent = Math.round(v);
     const step = Math.min(4, Math.floor((v / 100) * 5));
     lines.forEach((ln, i) => {
-      const ic = ln.querySelector('.ic'), st = ln.querySelector('.st');
+      const ic = ln.querySelector('.ic'), st = ln.querySelector('.bst');
       if (i < step || v >= 99) { ln.className = 'bt-ln ok'; ic.textContent = '✓'; st.textContent = 'ok'; }
       else if (i === step) { ln.className = 'bt-ln on'; ic.textContent = '▸'; st.textContent = '...'; }
     });
