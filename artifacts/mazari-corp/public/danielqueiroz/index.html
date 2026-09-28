@@ -71,6 +71,7 @@
   .f-edi{background:rgba(211,165,76,.15);color:#d3a54c;border:1px solid rgba(211,165,76,.4)}
   .f-mon{background:rgba(79,163,227,.15);color:#7EC4F5;border:1px solid rgba(79,163,227,.4)}
   .tag-ar{background:#D2FF28;color:#080908;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;border-radius:5px;padding:3px 9px;font-weight:700}
+  .tag-sch{background:rgba(79,163,227,.14);color:#7EC4F5;border:1px solid rgba(79,163,227,.45);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;border-radius:5px;padding:3px 9px;font-weight:700}
   .day h3{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:#fff;margin:0 0 5px;line-height:1.3}
   .hook{font-size:12px;color:#cfd4cb;margin:0}
   .cta{font-size:10px;color:#8a9186;margin-top:7px}
@@ -193,7 +194,7 @@
   <div class="st"><div class="v">129</div><div class="k">Artes finalizadas</div></div>
 </div>
 
-<div class="note"><b>Como ler esta página:</b> cada dia mostra a peça completa — deslize a fileira de imagens para ver todos os cards do carrossel, exatamente como sairão no Instagram. Os 5 ensaios editoriais de domingo entram em produção fotográfica esta semana e aparecerão aqui assim que ficarem prontos.</div>
+<div class="note"><b>Como ler esta página:</b> cada dia mostra a peça completa — deslize a fileira de imagens para ver todos os cards do carrossel, exatamente como sairão no Instagram. Os carrosséis marcados com <b>⏱ Agendado</b> já estão na esteira de publicação automática, às 11h30 do dia marcado. Os 5 ensaios editoriais de domingo entram em produção fotográfica esta semana.</div>
 
 <div class="legend">
   <span class="pill" style="border-color:rgba(211,165,76,.5);color:#d3a54c">Dor &amp; Espelho</span>
@@ -271,6 +272,7 @@ const weeks = [
   ['07','NOV','SEX','car','conv','Pra quem é (e pra quem NÃO é)','O filtro aberto que valoriza o convite. Fecha o ciclo abrindo conversas.','Comentar EU',['c18',7]]
  ]}
 ];
+const SCHED = { c02:'01/10', c03:'03/10', c04:'06/10', c05:'08/10', c06:'10/10', c07:'13/10', c08:'15/10', c09:'17/10', c10:'20/10', c11:'22/10', c12:'24/10', c13:'27/10', c14:'29/10', c15:'31/10', c16:'03/11', c17:'05/11', c18:'07/11' };
 function gallery(g){
   if (!g) return '<div class="prod">📸 Ensaio fotográfico em produção — as 3 fotos entram aqui nesta semana</div>';
   if (g[0] === 'est') return `<div class="strip"><img loading="lazy" src="est/${g[1]}.jpg" alt=""></div>`;
@@ -285,10 +287,11 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     const [dd, mm, wd, fmt, pil, title, hook, cta, g, hl] = d;
     const [fName, fCls] = F[fmt]; const [pName, pColor] = P[pil];
     const fmtTag = fmt === 'mon' ? `<span class="tag-ar">● NO AR</span>` : `<span class="fmt ${fCls}">${fName}</span>`;
+    const schTag = (g && g[0] !== 'est' && fmt !== 'mon' && SCHED[g[0]]) ? `<span class="tag-sch">⏱ Agendado · ${SCHED[g[0]]} · 11h30</span>` : '';
     return `<div class="day${hl ? ' hl' : ''}"><div class="dhead">
       <div class="date"><div class="d">${dd}</div><div class="m">${mm}</div><div class="w">${wd}</div></div>
       <div>
-        <div class="meta">${fmtTag}<span class="pill" style="border-color:${pColor}55;color:${pColor}">${pName}</span></div>
+        <div class="meta">${fmtTag}<span class="pill" style="border-color:${pColor}55;color:${pColor}">${pName}</span>${schTag}</div>
         <h3>${title}</h3><p class="hook">${hook}</p>
         <div class="cta">Chamada: <b>${cta}</b></div>
       </div></div>
