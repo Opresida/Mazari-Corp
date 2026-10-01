@@ -288,7 +288,7 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     const [fName, fCls] = F[fmt]; const [pName, pColor] = P[pil];
     const fmtTag = fmt === 'mon' ? `<span class="tag-ar">● NO AR</span>` : `<span class="fmt ${fCls}">${fName}</span>`;
     const schTag = (g && g[0] !== 'est' && fmt !== 'mon' && SCHED[g[0]]) ? `<span class="tag-sch">⏱ Agendado · ${SCHED[g[0]]} · 11h</span>` : '';
-    return `<div class="day${hl ? ' hl' : ''}"><div class="dhead">
+    return `<div class="day${hl ? ' hl' : ''}" data-pc="${g && g[0] !== 'est' ? g[0] : ''}"><div class="dhead">
       <div class="date"><div class="d">${dd}</div><div class="m">${mm}</div><div class="w">${wd}</div></div>
       <div>
         <div class="meta">${fmtTag}<span class="pill" style="border-color:${pColor}55;color:${pColor}">${pName}</span>${schTag}</div>
@@ -299,6 +299,30 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     </div>`;
   }).join('')}
 `).join('');
+
+// auto-marca posts ja publicados (le o Worker /published; marca NO AR + link)
+(function(){
+  var PUB_URL='https://daniel-ig-publisher.mazaricorp.workers.dev/published';
+  function mark(id, permalink){
+    if(!id) return;
+    var card=document.querySelector('.day[data-pc="'+id+'"]');
+    if(!card) return;
+    var meta=card.querySelector('.meta');
+    if(meta){
+      var first=meta.firstElementChild;
+      if(first && !first.classList.contains('tag-ar')){
+        var ar=document.createElement('span'); ar.className='tag-ar'; ar.textContent='● NO AR';
+        meta.replaceChild(ar, first);
+      }
+      var sch=meta.querySelector('.tag-sch'); if(sch) sch.remove();
+    }
+    if(permalink){
+      var cta=card.querySelector('.cta');
+      if(cta) cta.innerHTML='Chamada: <b><a href="'+permalink+'" target="_blank" rel="noopener">ver publicação no Instagram ↗</a></b>';
+    }
+  }
+  fetch(PUB_URL).then(function(r){return r.json();}).then(function(list){(list||[]).forEach(function(p){mark(p.id,p.permalink);});}).catch(function(){});
+})();
 // ── Boot loader (mesma coreografia do LoadingScreen do site: ~1.9s + fade .6s) ──
 (function () {
   const boot = document.getElementById('boot');
