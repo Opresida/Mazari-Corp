@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#080908">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAZARI Corp">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://mazaricorp.com/danielqueiroz/trafego/">
+<meta property="og:title" content="Relatório de Tráfego · Daniel Queiroz">
+<meta property="og:description" content="Um resumo simples da sua campanha: o que fizemos hoje, como estão os números e os anúncios novos no ar.">
+<meta property="og:image" content="https://mazaricorp.com/danielqueiroz/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Relatório de Tráfego · Daniel Queiroz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&display=swap">
+<style>
+  :root{ color-scheme: dark; --bg:#080908; --fg:#e9ede6; --mut:#8a9186; --lime:#D2FF28; --gold:#d3a54c; --blue:#4FA3E3; --card:#121412; --line:rgba(255,255,255,.09); }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:'JetBrains Mono',ui-monospace,monospace;line-height:1.6;font-size:14px;padding-block:0 70px;padding-inline:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto}
+  .bar{height:5px;background:var(--lime);margin:0 -16px 0}
+  a{color:var(--lime)}
+  /* header */
+  header{padding:40px 0 6px}
+  .wm{display:flex;align-items:center;gap:9px}
+  .wm b{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:24px;letter-spacing:-.02em;color:#fff}
+  .wm i{width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block;box-shadow:0 0 12px rgba(210,255,40,.6)}
+  .wm small{font-size:8px;letter-spacing:.24em;color:var(--mut);margin-left:6px;text-transform:uppercase}
+  .kicker{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin:26px 0 8px}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,6.4vw,50px);line-height:1.1;color:#fff;margin:0 0 12px;text-wrap:balance}
+  h1 .g{color:var(--gold);font-style:italic}
+  .lead{color:#cfd4cb;max-width:60ch;font-size:15px}
+  .meta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:22px 0 6px}
+  .chip{background:#161d14;border:1px solid rgba(210,255,40,.3);border-radius:10px;padding:9px 14px;font-family:'Fraunces',serif;font-size:16px;color:#fff}
+  .upd{font-size:11px;color:var(--mut)}
+  .upd b{color:var(--fg)}
+  /* sections */
+  section{margin-top:52px}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,4.6vw,30px);color:#fff;display:flex;align-items:baseline;gap:12px}
+  h2 .n{font-size:12px;color:var(--lime);font-family:'JetBrains Mono';letter-spacing:.1em}
+  .wsub{color:var(--mut);font-size:12.5px;margin:6px 0 20px;max-width:64ch}
+  .sec-line{height:1px;background:var(--line);margin:12px 0 22px;position:relative}
+  .sec-line::before{content:'';position:absolute;left:0;top:0;width:60px;height:1px;background:var(--lime)}
+  /* timeline cards */
+  .steps{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:680px){.steps{grid-template-columns:1fr 1fr}}
+  .step{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:18px 18px 20px;position:relative;overflow:hidden}
+  .step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--lime);opacity:.55}
+  .step .ic{font-size:26px;line-height:1;margin-bottom:12px;display:block}
+  .step h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#fff;margin-bottom:7px}
+  .step p{color:#cfd4cb;font-size:13px}
+  .step .tag{display:inline-block;margin-top:11px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(210,255,40,.3);border-radius:20px;padding:3px 10px}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .st{border:1px solid rgba(210,255,40,.16);border-radius:12px;background:var(--card);padding:16px 16px 15px}
+  .st .v{font-family:'Fraunces',serif;font-size:clamp(28px,6vw,34px);color:#fff;line-height:1}
+  .st .v small{font-size:15px;color:var(--mut)}
+  .st .k{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:9px}
+  .st .h{font-size:11px;color:#aeb4ab;margin-top:6px;line-height:1.4}
+  .st.hl{border-color:rgba(210,255,40,.5);background:#141710}
+  .st.hl .v{color:var(--lime)}
+  /* explain */
+  .note{border:1px solid var(--line);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;background:var(--card);padding:16px 18px;margin-top:16px}
+  .note p{color:#dfe4da;font-size:13.5px}
+  .note p+p{margin-top:10px}
+  .note b{color:#fff}
+  .note .blue{color:var(--blue)}
+  .analogy{margin-top:14px;font-size:12.5px;color:var(--mut);border:1px dashed rgba(255,255,255,.14);border-radius:12px;padding:13px 16px;background:#0e100e}
+  .analogy b{color:var(--gold)}
+  /* videos */
+  .vids{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+  .vcard{flex:1 1 300px;max-width:330px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:14px;text-align:center}
+  .vcard .lbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+  .vcard h3{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:#fff;margin-bottom:12px}
+  .vcard video{width:100%;max-height:600px;aspect-ratio:9/16;border-radius:10px;background:#000;display:block}
+  .vcard .fmt{font-size:10px;color:var(--mut);margin-top:10px}
+  /* next steps */
+  .next{display:grid;grid-template-columns:1fr;gap:11px;margin-top:4px}
+  @media(min-width:680px){.next{grid-template-columns:1fr 1fr}}
+  .nx{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px}
+  .nx .d{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:rgba(210,255,40,.14);border:1px solid rgba(210,255,40,.4);color:var(--lime);font-size:11px;display:grid;place-items:center;margin-top:1px}
+  .nx p{font-size:13px;color:#cfd4cb}
+  .nx b{color:#fff}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  footer .by{font-size:11px;color:var(--mut)}
+  footer .by b{color:var(--fg)}
+  /* reveal */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<div class="wrap">
+
+  <header class="rv">
+    <div class="wm"><i></i><b>MAZARI</b><small>Tráfego & Performance</small></div>
+    <div class="kicker">Relatório de Tráfego</div>
+    <h1>Seu investimento, <span class="g">em resultado.</span></h1>
+    <p class="lead">Um resumo direto e sem enrolação: o que a gente ajustou hoje, como estão os números da sua campanha e os anúncios novos que acabaram de entrar no ar.</p>
+    <div class="meta-row">
+      <span class="chip">Daniel Queiroz</span>
+      <span class="upd">Campanha <b>[PF][SP-ABC]</b> · conversas no WhatsApp · <b id="dt">atualizado em 03/10/2026</b></span>
+    </div>
+  </header>
+
+  <!-- 1 -->
+  <section class="rv">
+    <h2><span class="n">01</span> O que fizemos hoje</h2>
+    <p class="wsub">A ideia de hoje foi simples: fazer a campanha alcançar <b>mais gente certa</b>, gastando melhor — e colocar criativo novo pra ela não cansar.</p>
+    <div class="sec-line"></div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="rv">
+    <h2><span class="n">02</span> Como está a campanha</h2>
+    <p class="wsub">Os números dos primeiros dias de veiculação (desde 28/09, quando a entrega começou de verdade). Em linguagem de gente:</p>
+    <div class="sec-line"></div>
+    <div class="stats" id="stats"></div>
+    <div class="note">
+      <p><b>Traduzindo:</b> a cada <b class="blue">~R$ 8 investidos</b>, uma pessoa nova chamou você no WhatsApp. São <b>18 conversas</b> em poucos dias — custo baixo pra quem tá começando.</p>
+      <p>A <b>taxa de cliques de 4,6%</b> é alta: de cada 100 pessoas que viram o anúncio, quase 5 clicaram. Isso mostra que <b class="blue">a mensagem está batendo</b>. E o público <b>não cansou</b> (cada um viu só ~1,4 vez), então dá pra crescer com folga.</p>
+      <p><b>Próximo passo pra cravar o resultado:</b> acompanhar quantas dessas conversas viram aluno/cliente. Aí a gente sabe <b class="blue">exatamente quanto vale cada conversa</b> e o quanto dá pra acelerar com segurança.</p>
+    </div>
+    <div class="analogy">🏪 <b>Pensa assim:</b> é como uma loja que reabriu numa rua movimentada. Já tem gente entrando e perguntando (as conversas chegando baratas). Agora a gente mede quantos saem comprando — pra saber quando vale a pena <b>abrir mais caixas</b> (aumentar o investimento).</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="rv">
+    <h2><span class="n">03</span> Os 2 anúncios novos no ar</h2>
+    <p class="wsub">Dois vídeos novos no formato <b>vertical (Reels e Stories)</b> — o formato que a campanha quase não estava usando. Entram pra renovar a comunicação e evitar que o público canse do mesmo anúncio.</p>
+    <div class="sec-line"></div>
+    <div class="vids">
+      <div class="vcard">
+        <div class="lbl">Novo anúncio · vídeo 1</div>
+        <h3>Vídeo 01</h3>
+        <video src="ads/ads1.mp4" controls preload="metadata" playsinline></video>
+        <div class="fmt">Formato 9:16 · Reels / Stories</div>
+      </div>
+      <div class="vcard">
+        <div class="lbl">Novo anúncio · vídeo 2</div>
+        <h3>Vídeo 02</h3>
+        <video src="ads/ads2.mp4" controls preload="metadata" playsinline></video>
+        <div class="fmt">Formato 9:16 · Reels / Stories</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- next -->
+  <section class="rv">
+    <h2><span class="n">04</span> O que vem agora</h2>
+    <div class="sec-line"></div>
+    <div class="next">
+      <div class="nx"><span class="d">1</span><p><b>Deixar aprender (2–4 dias).</b> Toda vez que o público muda, a campanha reaprende. Nesses dias o custo oscila — é normal, não é problema.</p></div>
+      <div class="nx"><span class="d">2</span><p><b>Acompanhar os 2 vídeos novos.</b> Ver qual fala mais com o público do ABC e dar mais espaço pro campeão.</p></div>
+      <div class="nx"><span class="d">3</span><p><b>Medir conversa → cliente.</b> O número que falta pra dizer se dá pra pisar fundo no investimento.</p></div>
+      <div class="nx"><span class="d">4</span><p><b>Escalar com segurança.</b> Com a conta na mão, aumentar o orçamento sem perder a eficiência.</p></div>
+    </div>
+  </section>
+
+  <footer class="rv">
+    <div class="wm"><i></i><b>MAZARI</b></div>
+    <div class="by">Gestão de tráfego · <b>Daniel Queiroz</b> · relatório gerado pela MAZARI</div>
+  </footer>
+
+</div>
+
+<script>
+  // ── dados (fácil de atualizar: muda aqui e a página se redesenha) ──
+  var DADOS = {
+    atualizado: "03/10/2026",
+    passos: [
+      {ic:"🔎", t:"Raio-X da campanha", p:"Analisamos tudo com método (nada de achismo): onde o dinheiro já rendia e onde dava pra melhorar.", tag:"Diagnóstico"},
+      {ic:"📍", t:"Abrimos pra todo o ABC", p:"Antes a campanha mirava só o entorno de São Caetano. Agora alcança as 7 cidades do ABC — Santo André, São Bernardo, São Caetano, Diadema, Mauá, Ribeirão Pires e Rio Grande da Serra. Mais gente, sem sair da sua região.", tag:"Público ampliado"},
+      {ic:"🎯", t:"Afinamos a mira", p:"Deixamos só português e ajustamos os limites pra não gastar com quem está fora do ABC. Cada real no público certo.", tag:"Precisão"},
+      {ic:"🎬", t:"2 anúncios novos no ar", p:"Subimos 2 vídeos novos (verticais, pros Reels e Stories) pra renovar a campanha e não cansar o público.", tag:"Criativo"}
+    ],
+    stats: [
+      {v:"R$ 144", k:"Investido", h:"nos primeiros dias de veiculação", hl:false},
+      {v:"18", k:"Conversas no WhatsApp", h:"pessoas que te chamaram pelo anúncio", hl:true},
+      {v:"R$ 8", k:"Custo por conversa", h:"quanto custou cada pessoa te chamar", hl:true},
+      {v:"1.370", k:"Alcance", h:"pessoas diferentes que viram", hl:false},
+      {v:"4,6<small>%</small>", k:"Taxa de cliques", h:"forte — a mensagem está batendo", hl:false}
+    ]
+  };
+  function render(){
+    document.getElementById('dt').textContent = "atualizado em " + DADOS.atualizado;
+    document.getElementById('steps').innerHTML = DADOS.passos.map(function(s){
+      return '<div class="step"><span class="ic">'+s.ic+'</span><h3>'+s.t+'</h3><p>'+s.p+'</p><span class="tag">'+s.tag+'</span></div>';
+    }).join('');
+    document.getElementById('stats').innerHTML = DADOS.stats.map(function(s){
+      return '<div class="st'+(s.hl?' hl':'')+'"><div class="v">'+s.v+'</div><div class="k">'+s.k+'</div><div class="h">'+s.h+'</div></div>';
+    }).join('');
+  }
+  render();
+  // reveal on scroll
+  (function(){
+    var els = document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on')});return;}
+    var io = new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
