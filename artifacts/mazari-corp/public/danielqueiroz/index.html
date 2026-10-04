@@ -288,7 +288,7 @@ document.getElementById('grade').innerHTML = weeks.map(w => `
     const [fName, fCls] = F[fmt]; const [pName, pColor] = P[pil];
     const fmtTag = fmt === 'mon' ? `<span class="tag-ar">● NO AR</span>` : `<span class="fmt ${fCls}">${fName}</span>`;
     const schTag = (g && g[0] !== 'est' && fmt !== 'mon' && SCHED[g[0]]) ? `<span class="tag-sch">⏱ Agendado · ${SCHED[g[0]]} · 11h</span>` : '';
-    return `<div class="day${hl ? ' hl' : ''}" data-pc="${g && g[0] !== 'est' ? g[0] : ''}"><div class="dhead">
+    return `<div class="day${hl ? ' hl' : ''}" data-pc="${g ? (g[0] === 'est' ? g[1] : g[0]) : ''}"><div class="dhead">
       <div class="date"><div class="d">${dd}</div><div class="m">${mm}</div><div class="w">${wd}</div></div>
       <div>
         <div class="meta">${fmtTag}<span class="pill" style="border-color:${pColor}55;color:${pColor}">${pName}</span>${schTag}</div>
